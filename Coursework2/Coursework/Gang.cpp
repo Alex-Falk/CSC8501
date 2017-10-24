@@ -13,6 +13,7 @@ Gang::Gang(string fileA, string fileB, string fileC, string fileD, string fileE)
 		gang_members[i] = new GangMember();
 	}
 
+	strats = { fileA.substr(11), fileB.substr(11), fileC.substr(11), fileD.substr(11), fileE.substr(11) };
 
 	GangStrategy * stratA = new GangStrategy(); 
 	GangStrategy * stratB = new GangStrategy();
@@ -57,13 +58,13 @@ void Gang::get_strat(GangStrategy ** strat, string file)
 
 }
 
-Decision * Gang::get_gang_decisions(int iteration)
+vector<Decision> Gang::get_gang_decisions(int iteration)
 {
-	Decision decisions[5];
+	vector<Decision> decisions;
 
 	for (int i = 0; i < 5; ++i) 
 	{
-		gang_members[i]->get_decision(iteration);
+		decisions.push_back(gang_members[i]->get_decision(iteration));
 	}
 	return decisions;
 }
@@ -74,4 +75,15 @@ void Gang::sentence_gang(GangMember::Outcome outcome)
 	{
 		gang_members[i]->sentence(outcome);
 	}
+}
+
+int Gang::get_scores()
+{
+	int score = gang_members[0]->get_score();
+	return score;
+}
+
+vector<string> Gang::return_strats()
+{
+	return strats;
 }

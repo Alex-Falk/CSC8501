@@ -14,7 +14,7 @@ class Game
 public:
 	Game();
 	Game(string fileA, string fileB);				// Takes two filenames for strategies to use in this given game.
-	~Game();
+	virtual ~Game();
 	virtual void find_outcome(int iteration);				// Finds both the decisions of the prisoners for given iteration and sentences them accordingly.
 	virtual void run(int iterations);						// Runs the game with a given amount of iterations. It will take the filenames given in instatiation to use as strategies.
 	virtual vector<int> getResults();						// Returns the total sentences for each prisoner for this given game. 0 - Prisoner A, 1 - Prisoner B

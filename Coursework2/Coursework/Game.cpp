@@ -51,8 +51,9 @@ Game::~Game()
 	A = nullptr;
 	B = nullptr;
 
-	stratA->terminate();
-	stratB->terminate();
+	if (stratA) { stratA->terminate(); }
+	if (stratB) { stratB->terminate(); }
+	
 
 	delete stratA;
 	delete stratB;

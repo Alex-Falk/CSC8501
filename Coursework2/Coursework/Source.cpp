@@ -2,7 +2,8 @@
 #include <fstream>
 #include <string>
 #include <time.h>
-#include "Tournament.h"
+#include "GangGame.h"
+#include "GangTournament.h"
 
 using namespace std;
 
@@ -67,18 +68,18 @@ int main() {
 
 	cout << "\n" << filenames.size() << " strategies will be used in the tournament \n \n";
 
-	Tournament t(filenames);
+	GangTournament t(filenames);
 	t.runTournament();
-	t.printResults();
+	//t.printResults();
 
-	Tournament::result winner = t.findWinner();
+	//Tournament::result winner = t.findWinner();
 
-	cout << "\nThe Winning Strategy is: " << winner.name << " with a total sentence of " << winner.total << " years\n";
-	cout << "The scores against individual strategies of this are: \n";
-	for (int i = 0; i < filenames.size(); ++i) {
-		if (filenames[i] != winner.name)
-			cout << filenames[i] << "\t" << winner.sentences[i] << "\n";
-	}
+	//cout << "\nThe Winning Strategy is: " << winner.name << " with a total sentence of " << winner.total << " years\n";
+	//cout << "The scores against individual strategies of this are: \n";
+	//for (int i = 0; i < filenames.size(); ++i) {
+	//	if (filenames[i] != winner.name)
+	//		cout << filenames[i] << "\t" << winner.sentences[i] << "\n";
+	//}
 
 
 	return 0;
