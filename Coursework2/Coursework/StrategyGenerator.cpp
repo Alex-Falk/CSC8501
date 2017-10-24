@@ -109,9 +109,9 @@ string StrategyGenerator::generateIf()
 
 	if (randomChoice == 0)														// Choose nrvariables
 	{ 
-		string randomVar = nrvars[rand() % 7];
+		string randomVar = nrvars[rand() % nrvars.size()];
 		string randomOp = comparisonOps[rand() % 3];
-		string randomVar2 = nrvars[rand() % 7];
+		string randomVar2 = nrvars[rand() % nrvars.size()];
 
 		if (randomVar == "NUMBER") { randomVar = to_string(rand() % 201); }
 		if (randomVar2 == "NUMBER") { randomVar2 = to_string(rand() % 201); }
@@ -120,7 +120,7 @@ string StrategyGenerator::generateIf()
 	}
 	else																		// Choose outcome variable
 	{	
-		string randomVar = outcomevars[rand() % 3];
+		string randomVar = outcomevars[rand() % outcomevars.size()];
 
 		line.append("LASTOUTCOME = " + randomVar + " ");
 	}

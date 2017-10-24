@@ -4,6 +4,7 @@
 #include <time.h>
 #include "GangGame.h"
 #include "GangTournament.h"
+#include "GangStrategyGenerator.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ int main() {
 		cout << "\n How many strategies do you want to create?\t";
 		cin >> nstrat;
 
-		StrategyGenerator * gen = new StrategyGenerator();
+		GangStrategyGenerator * gen = new GangStrategyGenerator();
 		for (int i = 0; i < nstrat; ++i) {
 			gen->generateStrategy(10, ("Strategies\\Strategy" + to_string(i) + ".txt"));
 
