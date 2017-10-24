@@ -59,8 +59,19 @@ void Gang::get_strat(GangStrategy ** strat, string file)
 
 Decision * Gang::get_gang_decisions(int iteration)
 {
+	Decision decisions[5];
+
 	for (int i = 0; i < 5; ++i) 
 	{
 		gang_members[i]->get_decision(iteration);
+	}
+	return decisions;
+}
+
+void Gang::sentence_gang(GangMember::Outcome outcome)
+{
+	for (int i = 0; i < 5; ++i)
+	{
+		gang_members[i]->sentence(outcome);
 	}
 }

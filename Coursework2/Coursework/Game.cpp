@@ -3,6 +3,10 @@
 #include <string>
 #include <time.h>
 
+Game::Game() 
+{
+}
+
 Game::Game(string fileA, string fileB) {
 	// Create a game with 2 prisoners which get assigned the provided strategies given
 	A = new Prisoner();
