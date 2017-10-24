@@ -4,6 +4,7 @@
 #include <time.h>
 
 Game::Game(string fileA, string fileB) {
+	// Create a game with 2 prisoners which get assigned the provided strategies given
 	A = new Prisoner();
 	B = new Prisoner();
 
@@ -40,7 +41,8 @@ Game::Game(string fileA, string fileB) {
 }
 
 
-Game::~Game() {
+Game::~Game() 
+{	// clear up memory and terminate the trees
 	delete A, B;
 	A = nullptr;
 	B = nullptr;
@@ -54,13 +56,14 @@ Game::~Game() {
 	stratB = nullptr;
 }
 
-void Game::run(int iterations) {
-	for (int i = 0; i < iterations; i++) {
-
+void Game::run(int iterations) 
+{	// Runs the game with a given number of iterations
+	for (int i = 0; i < iterations; i++) 
+	{
 		find_outcome(i);
-
 	}
 
+	// Print Out the outcomes of the given game
 	cout << "A: w:" << A->get_allw() << " x:" << A->get_allx() << " y:" << A->get_ally() << " z:" << A->get_allz() << " score:" << A->get_score() << "\n";
 	cout << "B: w:" << B->get_allw() << " x:" << B->get_allx() << " y:" << B->get_ally() << " z:" << B->get_allz() << " score:" << B->get_score() << "\n";
 
@@ -70,11 +73,9 @@ void Game::run(int iterations) {
 }
 
 void Game::find_outcome(int iteration)
-{
+{	// Find the decision each prisnoer makes and determine the outcome and their sentence according to this
 	Decision resultA = A->get_decision(iteration);
 	Decision resultB = B->get_decision(iteration);
-	//cout << "A: " << resultA << "\n";
-	//cout << "B: " << resultB << "\n";
 
 	if (resultA == Decision::SILENCE && resultB == Decision::SILENCE) {
 		A->sentence(W);
@@ -95,7 +96,8 @@ void Game::find_outcome(int iteration)
 }
 
 
-vector<int> Game::getResults() {
+vector<int> Game::getResults()
+{
 	return totalresults;
 }
 
