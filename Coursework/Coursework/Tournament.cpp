@@ -20,18 +20,21 @@ Tournament::~Tournament() {
 }
 
 
-void Tournament::runTournament() {
-	
-	for (int i = 0; i < filenames.size(); ++i) {
+void Tournament::runTournament()												// Runs the tournament with the given files (from instantiation)
+{
+	for (int i = 0; i < filenames.size(); ++i)
+	{
 		int totalA = 0, totalB = 0;
 		results[i].name = filenames[i];
 		results[i].sentences.resize(filenames.size());
 
-		for (int j = i; j < filenames.size(); ++j) {
-			if (i != j) {
-				cout << filenames[i] << " vs. " << filenames[j] << "\n";
+		for (int j = i; j < filenames.size(); ++j) 
+		{
+			if (i != j)															// Prevents Strategies from playing themselves
+			{
+				cout << filenames[i] << " vs. " << filenames[j] << "\n";		
 				Game * game = new Game(filenames[i],filenames[j]);
-				game->run(200);
+				game->run(200);													// 200 Iterations for a given game
 				vector<int> game_results = game->getResults();
 
 				results[j].name = filenames[j];
@@ -45,23 +48,29 @@ void Tournament::runTournament() {
 				delete game;
 			}
 		}
-		for (int k = 0; k < results.size(); ++k) {
+		for (int k = 0; k < results.size(); ++k)								
+		{	// Count final scores for each strategy
 			results[k].total = std::accumulate(results[k].sentences.begin(), results[k].sentences.end(), 0);
 		}
 	}
 }
 
-void Tournament::printResults() {
-	for (int i = 0; i < results.size(); ++i) {
+void Tournament::printResults()													
+{	// Prints the final total scores out in the console
+	for (int i = 0; i < results.size(); ++i) 
+	{
 		cout << filenames[i] << "\t";
 		cout << results[i].total << "\n";
 	}
 }
 
-Tournament::result Tournament::findWinner() {
+Tournament::result Tournament::findWinner()									
+{	// Iterates through the results to find the strategy with the lowest score
 	result winner = results[0];
-	for (int i = 0; i < results.size(); ++i) {
-		if (results[i].total < winner.total) {
+	for (int i = 0; i < results.size(); ++i) 
+	{
+		if (results[i].total < winner.total) 
+		{
 			winner = results[i];
 		}
 	}
