@@ -69,7 +69,18 @@ int main() {
 
 	cout << "\n" << filenames.size() << " strategies will be used in the tournament \n \n";
 
-	GangTournament t(filenames);
+	char leaderChoice;
+	cout << "Do you wish to \n A: control the Gang Leader's choic \n B: Always swap  \n C: Always stay \n D: Randomly Decide \n";
+	cin >> leaderChoice;
+	if (leaderChoice != 'A' && leaderChoice != 'B' && leaderChoice != 'C' && leaderChoice != 'D') 
+	{
+		cout << "Invalid choice, selecting random\n";
+		leaderChoice = 'D';
+	}
+
+
+
+	GangTournament t(filenames,leaderChoice);
 	t.runTournament();
 	//t.printResults();
 

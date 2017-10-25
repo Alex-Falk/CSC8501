@@ -1,8 +1,9 @@
 #include "GangTournament.h"
 #include "GangGame.h"
+#include "Gang.h"
 
 
-GangTournament::GangTournament(vector<string> files) : Tournament(files)
+GangTournament::GangTournament(vector<string> files, char leaderchoice) : Tournament(files), leaderChoice(leaderchoice)
 {
 }
 
@@ -17,7 +18,20 @@ void GangTournament::runTournament()
 	{
 		GangGame * game = new GangGame(filenames[i], filenames);
 
-		game->run(200);
+		method mthd = method::RANDOM;
+		switch (leaderChoice)
+		{
+		case 'A':
+			mthd == method::CUSTOM;
+		case 'B':
+			mthd == method::SWAP;
+		case 'C':
+			mthd == method::STAY;
+		case 'D':
+			mthd == method::RANDOM;
+		}
+
+		game->run(200,mthd);
 
 		vector<int> game_results = game->getResults();
 

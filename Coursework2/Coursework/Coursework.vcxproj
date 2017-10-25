@@ -113,7 +113,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Gang.h" />
+    <ClInclude Include="GangGame.h" />
     <ClInclude Include="GangMember.h" />
+    <ClInclude Include="GangStrategy.h" />
+    <ClInclude Include="GangStrategyGenerator.h" />
+    <ClInclude Include="GangTournament.h" />
     <ClInclude Include="Prisoner.h" />
     <ClInclude Include="Strategy.h" />
     <ClInclude Include="StrategyGenerator.h" />
@@ -121,7 +126,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Gang.cpp" />
+    <ClCompile Include="GangGame.cpp" />
     <ClCompile Include="GangMember.cpp" />
+    <ClCompile Include="GangStrategy.cpp" />
+    <ClCompile Include="GangStrategyGenerator.cpp" />
+    <ClCompile Include="GangTournament.cpp" />
     <ClCompile Include="Prisoner.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Strategy.cpp" />

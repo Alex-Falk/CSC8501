@@ -83,7 +83,148 @@ int Gang::get_scores()
 	return score;
 }
 
+void Gang::add_scores(int x)
+{
+	for (int i = 0; i < 5; ++i)
+	{
+		gang_members[i]->add_score(x);
+	}
+}
+
 vector<string> Gang::return_strats()
 {
 	return strats;
+}
+
+void Gang::giveSpy()
+{
+	withSpy = true;
+	spy_idx = rand() % 4 + 1;
+	gang_members[spy_idx]->makeSpy();
+	gang_members[0]->makeLeader();
+}
+
+int Gang::findSpy(method mthd)
+{
+	int found_spy = 0;
+	
+	if (withSpy) {
+
+		int guess_spy_idx, not_spy_idx;
+
+
+		switch (mthd)
+		{
+		case CUSTOM:
+			cout << "You Are the gang leader, guess which other gang member is a spy (1,2,3 or 4): \t";
+			cin >> guess_spy_idx;
+			cout << "\n";
+			break;
+		case SWAP:
+		case STAY:
+		case RANDOM:
+			guess_spy_idx = (rand() % 4) + 1;
+			break;
+		}
+
+		int other_members[3];
+
+		switch (guess_spy_idx) {
+		case 1:
+			other_members[0] = 2;
+			other_members[1] = 3;
+			other_members[2] = 4;
+			break;
+		case 2:
+			other_members[0] = 1;
+			other_members[1] = 3;
+			other_members[2] = 4;
+			break;
+		case 3:
+			other_members[0] = 1;
+			other_members[1] = 2;
+			other_members[2] = 4;
+			break;
+		case 4:
+			other_members[0] = 1;
+			other_members[1] = 2;
+			other_members[2] = 3;
+			break;
+		default:
+			cout << "You did not choose a valid gang member, choosing gang member 1 \n";
+			other_members[0] = 2;
+			other_members[1] = 3;
+			other_members[2] = 4;
+			break;
+		}
+		
+		not_spy_idx = other_members[rand() % 3];
+
+		int new_other_members[2];
+		for (int i = 0; i < 3; ++i)
+		{
+			int j = 0;
+			if (not_spy_idx != other_members[i]) 
+			{
+				new_other_members[j] = other_members[i];
+				j++;
+			}
+		}
+
+		char switch_choice;
+
+		switch (mthd)
+		{
+		case CUSTOM:
+			cout << "Gang member " << not_spy_idx << " has been revealed not to be spy. Do you wish to switch your choice? (Y/N) \t";
+			cin >> switch_choice;
+			cout << "\n";
+			break;
+		case SWAP:
+			switch_choice = 'Y';
+			break;
+		case STAY:
+			switch_choice = 'N';
+			break;
+		case RANDOM:
+			int rand_switch_choice = rand() % 2;
+			if (rand_switch_choice == 0) { switch_choice = 'Y'; }
+			else { switch_choice = 'N'; }
+		}
+
+		switch (switch_choice) {
+		case 'Y':
+		case 'y':
+			switch (mthd)
+			{
+			case CUSTOM:
+				cout << "Choose another gang member that is not " << guess_spy_idx << " or " << not_spy_idx << "\t";
+				cin >> guess_spy_idx;
+				cout << "\n";
+				break;
+
+			case SWAP:
+				guess_spy_idx = new_other_members[rand() % 2];
+			}
+			if (guess_spy_idx - 1 == spy_idx) { found_spy = 2; }
+			break;
+		default:
+			if (guess_spy_idx - 1 == spy_idx) {	found_spy = 1; }
+			break;
+		}
+	}
+
+	return found_spy;
+
+}
+
+ostream& operator<<(ostream& ostr, Gang gang)
+{
+	ostr << "Strategies: ";
+	for (int i = 0; i < 5; ++i)
+	{
+		int first_nr_idx = gang.strats[i].find_first_of("0123456789");
+		ostr << gang.strats[i].substr(first_nr_idx, gang.strats[i].size() - first_nr_idx - 4) << " ";
+	}
+	return ostr;
 }

@@ -14,6 +14,10 @@ int Prisoner::get_score()
 {
 	return myscore;
 }
+void Prisoner::add_score(int x)
+{
+	myscore += x;
+}
 //
 //Strategy Prisoner::get_strategy()
 //{

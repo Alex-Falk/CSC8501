@@ -26,6 +26,26 @@ int GangMember::get_allC()
 	return alloutcomes_c;
 }
 
+bool GangMember::isLeader()
+{
+	return is_leader;
+}
+
+bool GangMember::isSpy()
+{
+	return is_spy;
+}
+
+void GangMember::makeLeader()
+{
+	is_leader = true;
+}
+
+void GangMember::makeSpy()
+{
+	is_spy = true;
+}
+
 void GangMember::sentence(Outcome outcome)
 {
 	last_outcome = outcome;

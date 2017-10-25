@@ -15,6 +15,7 @@ public:
 	Prisoner();
 	virtual ~Prisoner();
 	virtual int get_score();
+	virtual void add_score(int x);
 	//Strategy get_strategy();
 	virtual void set_strategy(Strategy * strategy);
 	virtual void sentence(Outcome outcome);											// Add years to myscore, set last_outcome and add to counters
