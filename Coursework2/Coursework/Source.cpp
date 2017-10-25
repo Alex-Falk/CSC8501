@@ -130,7 +130,7 @@ int main() {
 
 	Tournament::result winner = t.findWinner();
 
-	cout << "\nThe Winning combination is: " << shortenStrategyList(winner.name) << " with a total sentence of " << winner.total << " years\n";
+	cout << "\nThe Winning combination is: " << shortenStrategyList(winner.name) << " with a total sentence of " << winner.total << " years per gang member\n";
 	//cout << "The scores against individual strategies of this are: \n";
 	//for (int i = 0; i < filenames.size(); ++i) {
 	//	if (filenames[i] != winner.name)
