@@ -142,6 +142,7 @@
     <Text Include="Strategytest1.txt" />
     <Text Include="Strategytest2.txt" />
     <Text Include="Strategytest3.txt" />
+    <Text Include="StrategyCombinations.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

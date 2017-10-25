@@ -16,7 +16,11 @@ int main() {
 	int nstrat;
 	vector<string> filenames;
 
-	// Generating Strategies
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	GENERATING STRATEGIES
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
 	cout << "Do you want to create strategies? (Y/N) \t";
 	cin >> choice;
 	if (choice == 'Y') {
@@ -31,7 +35,11 @@ int main() {
 		}
 	}
 
-	// Reading in Strategies
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	READING IN CUSTOM STRATEGIES
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
 	int nstrat_custom, nstrat_gen;
 	cout << "\n\n";
 	cout << "How many custom strategies do you want to read in?\t";
@@ -51,6 +59,11 @@ int main() {
 		file.close();
 	}
 
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	READING IN GENERATED STRATEGIES
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
 	cout << "\n";
 	cout << "How many generated strategies do you want to read in?\t";
 	cin >> nstrat_gen;
@@ -69,6 +82,12 @@ int main() {
 
 	cout << "\n" << filenames.size() << " strategies will be used in the tournament \n \n";
 
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	CHOOSING GANG LEADER CHOICE
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
+
 	char leaderChoice;
 	cout << "Do you wish to \n A: control the Gang Leader's choic \n B: Always swap  \n C: Always stay \n D: Randomly Decide \n";
 	cin >> leaderChoice;
@@ -77,8 +96,13 @@ int main() {
 		cout << "Invalid choice, selecting random\n";
 		leaderChoice = 'D';
 	}
+	cout << "\n";
 
-
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	RUNNING TOURNAMENT
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
 
 	GangTournament t(filenames,leaderChoice);
 	t.runTournament();

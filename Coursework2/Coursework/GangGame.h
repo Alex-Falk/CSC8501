@@ -9,6 +9,7 @@ class GangGame :
 	public Game
 {
 public:
+	GangGame(string combinationA, string combinationB);
 	GangGame(string givenstrat, vector<string> strategies);
 	~GangGame();
 	void find_outcome(int iteration);				// Finds both the decisions of the prisoners for given iteration and sentences them accordingly.

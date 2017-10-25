@@ -1,6 +1,8 @@
 #include "GangTournament.h"
 #include "GangGame.h"
 #include "Gang.h"
+#include <fstream>
+#include <string>
 
 
 GangTournament::GangTournament(vector<string> files, char leaderchoice) : Tournament(files), leaderChoice(leaderchoice)
@@ -31,11 +33,11 @@ void GangTournament::runTournament()
 			mthd == method::RANDOM;
 		}
 
-		game->run(200,mthd);
+		cout << "Game " << i+1 << "\n";
+
+		game->run(200, mthd);
 
 		vector<int> game_results = game->getResults();
-
-		cout << "Game " << i << "\n";
 
 		cout << "GangA:\t";
 		cout << game_results[0] << " years\t";
@@ -47,4 +49,19 @@ void GangTournament::runTournament()
 
 	}
 }
+
+void GangTournament::readCombinationFile()
+{
+	ifstream inFile;
+	inFile.open("combinations.txt");
+
+	while (!inFile.eof()) {
+		string line;
+		getline(inFile, line);
+		combinations.push_back(line);
+	}
+
+	inFile.close();
+}
+
 

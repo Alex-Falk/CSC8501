@@ -97,5 +97,8 @@
     <Text Include="Strategytest3.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="StrategyCombinations.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

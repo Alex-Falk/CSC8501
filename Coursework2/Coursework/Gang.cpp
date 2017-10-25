@@ -60,12 +60,32 @@ void Gang::get_strat(GangStrategy ** strat, string file)
 
 vector<Decision> Gang::get_gang_decisions(int iteration)
 {
-	vector<Decision> decisions;
+	vector<Decision> decisions(5);
+	int betrays = 0;
 
 	for (int i = 0; i < 5; ++i) 
 	{
-		decisions.push_back(gang_members[i]->get_decision(iteration));
+		if (i != spy_idx)
+		{
+			Decision decision = gang_members[i]->get_decision(iteration);
+			decisions[i] = decision;
+			if (decision == Decision::BETRAY) { betrays++; }
+		}
 	}
+
+	if (betrays > 2) {
+		decisions[spy_idx] = Decision::SILENCE;
+	}
+	else if (betrays < 2) {
+		decisions[spy_idx] = Decision::BETRAY;
+	}
+	else {
+		//TODO figure out what the spy does if there is no minority option
+		decisions[spy_idx] = Decision::BETRAY;
+	}
+
+
+
 	return decisions;
 }
 

@@ -4,12 +4,20 @@
 #include "GangMember.h"
 #include "GangStrategy.h"
 #include "StrategyGenerator.h"
+#include <fstream>
 
+GangGame::GangGame(string combinationA, string combinationB)
+{
+	for (int i = 0; i < 5; ++i)
+	{
+		combinationA;
+	}
+}
 
 GangGame::GangGame(string givenstrat, vector<string> strategies)
 {
 	gangA = new Gang(givenstrat, strategies[rand() % strategies.size()], strategies[rand() % strategies.size()], strategies[rand() % strategies.size()], strategies[rand() % strategies.size()]);
-	gangB = new Gang(givenstrat, strategies[rand() % strategies.size()], strategies[rand() % strategies.size()], strategies[rand() % strategies.size()], strategies[rand() % strategies.size()]);
+	gangB = new Gang(strategies[rand() % strategies.size()], strategies[rand() % strategies.size()], strategies[rand() % strategies.size()], strategies[rand() % strategies.size()], strategies[rand() % strategies.size()]);
 }
 
 GangGame::~GangGame()
@@ -82,10 +90,11 @@ void GangGame::run(int iterations,method mthd)
 	vector<string> stratsA = gangA->return_strats();
 	vector<string> stratsB = gangB->return_strats();
 
-	cout << *gangA << "\n" << "vs.\n" << *gangB << "\n\n";
+	cout << "\n" << *gangA << "\n" << "vs.\n" << *gangB << "\n\n";
 
 	int nrspygames = 10;
 	vector<int> spygames;
+
 	for (int i = 0; i < nrspygames; ++i)
 	{
 		int rand_iteration = rand() % (iterations - i);
@@ -108,13 +117,13 @@ void GangGame::run(int iterations,method mthd)
 			
 			switch (rand_gang)
 			{
-			case 0:
+			case 0:	// Only gang A gets a spy
 				has_effect = spyGame(true, false, mthd);
 				break;
-			case 1:
+			case 1:	// Only gang B gets a spy
 				has_effect = spyGame(false, true, mthd);
 				break;
-			case 2:
+			case 2:	// Both gangs get a spy
 				has_effect = spyGame(true, true, mthd);
 				break;
 			}
@@ -143,41 +152,41 @@ bool GangGame::spyGame(bool spy_A, bool spy_B, method mthd)
 
 	switch (spyA_result)
 	{
-	case 0:
+	case 0:	// SPY IN A WAS NOT FOUND
 		switch (spyB_result)
 		{
-		case 0:
+		case 0: // SPY IN B WAS NOT FOUND
 			has_effect = false;
 			break;
-		case 1:
+		case 1: // SPY IN B WAS FOUND, NO SWITCH
 			gangA->add_scores(5);
 			gangB->add_scores(0);
 			break;
-		case 2:
+		case 2: // SPY IN B WAS FOUND, SWITCH
 			gangA->add_scores(5);
 			gangB->add_scores(2);
 			break;
 		}
-	case 1:
-		if (spyB_result == 0)
-		{
+	case 1: // SPY IN A WAS FOUND, NO SWITCH
+		if (spyB_result == 0)	
+		{	// SPY IN B WAS NOT FOUND
 			gangA->add_scores(0);
 			gangB->add_scores(5);
 		}
-		else
-		{
+		else 
+		{	// SPY IN B WAS FOUND
 			gangA->add_scores(6);
 			gangB->add_scores(6);
 		}
 		break;
-	case 2:
-		if (spyB_result == 0)
-		{
+	case 2: // SPY IN A WAS FOUND, NO SWITCH
+		if (spyB_result == 0) 
+		{	// SPY IN B WAS NOT FOUND
 			gangA->add_scores(2);
 			gangB->add_scores(5);
 		}
-		else
-		{
+		else 
+		{	// SPY IN B WAS FOUND
 			gangA->add_scores(6);
 			gangB->add_scores(6);
 		}
