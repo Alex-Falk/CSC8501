@@ -116,7 +116,7 @@ void GangTournament::printResults()
 	{
 		cout << "Combination of strategies: ";
 
-		cout << shortenStrategyList(results[i].name) << "\t";
+		cout << shortenStrategyList(results[i].name) << "\t"  ;
 		cout << results[i].total << "\n";
 	}
 
