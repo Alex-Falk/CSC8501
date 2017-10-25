@@ -248,3 +248,5 @@ ostream& operator<<(ostream& ostr, Gang gang)
 	}
 	return ostr;
 }
+
+

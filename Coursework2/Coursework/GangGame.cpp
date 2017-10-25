@@ -8,10 +8,20 @@
 
 GangGame::GangGame(string combinationA, string combinationB)
 {
+	string strategiesA[5];
+	string strategiesB[5];
 	for (int i = 0; i < 5; ++i)
 	{
-		combinationA;
+		strategiesA[i] = combinationA.substr(0, combinationA.find_first_of(" "));
+		combinationA = combinationA.substr(combinationA.find_first_of(" ")+1);
+
+		strategiesB[i] = combinationB.substr(0, combinationB.find_first_of(" "));
+		combinationB = combinationB.substr(combinationB.find_first_of(" ")+1);
 	}
+
+	gangA = new Gang(strategiesA[0], strategiesA[1], strategiesA[2], strategiesA[3], strategiesA[4]);
+	gangB = new Gang(strategiesB[0], strategiesB[1], strategiesB[2], strategiesB[3], strategiesB[4]);
+
 }
 
 GangGame::GangGame(string givenstrat, vector<string> strategies)

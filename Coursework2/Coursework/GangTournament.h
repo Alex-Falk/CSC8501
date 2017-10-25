@@ -8,8 +8,11 @@ public:
 	~GangTournament();
 	void runTournament();
 	void readCombinationFile();
+	void generateCombinations(int nrcombo);
+	void printResults();
 protected:
 	char leaderChoice;
+	int nrcombo;
 	vector<string> combinations;
 };
 

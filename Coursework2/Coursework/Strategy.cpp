@@ -274,3 +274,5 @@ string Strategy::getFile()
 {
 	return file;
 }
+
+

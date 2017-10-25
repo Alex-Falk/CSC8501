@@ -5,8 +5,11 @@
 #include "GangGame.h"
 #include "GangTournament.h"
 #include "GangStrategyGenerator.h"
+#include "GlobalFunctions.h"
 
 using namespace std;
+
+
 
 int main() {
 
@@ -105,12 +108,29 @@ int main() {
 	*/
 
 	GangTournament t(filenames,leaderChoice);
+
+	char comboChoice;
+	cout << "Do You want to generate a new strategy combinations file? (Y/N)\n";
+	cin >> comboChoice;
+	cout << "\n";
+	switch (comboChoice)
+	{
+	case 'Y':
+	case 'y':
+		int ncombo;
+		cout << "How many do you want to generate?\n";
+		cin >> ncombo;
+		cout << "\n";
+		t.generateCombinations(ncombo);
+	}
+
+	t.readCombinationFile();
 	t.runTournament();
-	//t.printResults();
+	t.printResults();
 
-	//Tournament::result winner = t.findWinner();
+	Tournament::result winner = t.findWinner();
 
-	//cout << "\nThe Winning Strategy is: " << winner.name << " with a total sentence of " << winner.total << " years\n";
+	cout << "\nThe Winning combination is: " << shortenStrategyList(winner.name) << " with a total sentence of " << winner.total << " years\n";
 	//cout << "The scores against individual strategies of this are: \n";
 	//for (int i = 0; i < filenames.size(); ++i) {
 	//	if (filenames[i] != winner.name)
