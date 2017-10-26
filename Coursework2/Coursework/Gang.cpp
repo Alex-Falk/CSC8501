@@ -248,6 +248,39 @@ int Gang::findSpy(method mthd)
 
 }
 
+int Gang::get_allw()
+{
+	return gang_members[0]->get_allw();
+}
+
+int Gang::get_allx()
+{
+	return gang_members[0]->get_allx();
+}
+
+int Gang::get_ally()
+{
+	return gang_members[0]->get_ally();
+}
+
+int Gang::get_allz()
+{
+	return gang_members[0]->get_allz();
+}
+
+int Gang::get_alla()
+{
+	return gang_members[0]->get_allA();
+}
+int Gang::get_allb()
+{
+	return gang_members[0]->get_allB();
+}
+int Gang::get_allc()
+{
+	return gang_members[0]->get_allC();
+}
+
 ostream& operator<<(ostream& ostr, Gang gang)
 {
 	ostr << "Strategies: ";

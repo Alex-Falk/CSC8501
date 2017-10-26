@@ -37,5 +37,6 @@ protected:
 	int alloutcomes_y;
 	int alloutcomes_z;
 	Outcome last_outcome;
+
 };
 

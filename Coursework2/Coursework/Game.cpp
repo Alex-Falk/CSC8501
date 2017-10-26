@@ -68,13 +68,18 @@ void Game::run(int iterations)
 		find_outcome(i);
 	}
 
-	// Print Out the outcomes of the given game
-	cout << "A: w:" << A->get_allw() << " x:" << A->get_allx() << " y:" << A->get_ally() << " z:" << A->get_allz() << " score:" << A->get_score() << "\n";
-	cout << "B: w:" << B->get_allw() << " x:" << B->get_allx() << " y:" << B->get_ally() << " z:" << B->get_allz() << " score:" << B->get_score() << "\n";
+	totalResults = new Matrix<int>(5, 2);
 
-	totalresults.push_back(A->get_score());
-	totalresults.push_back(B->get_score());
-
+	totalResults->set_element(0, 0, A->get_allw());
+	totalResults->set_element(1, 0, A->get_allx());
+	totalResults->set_element(2, 0, A->get_ally());
+	totalResults->set_element(3, 0, A->get_allz());
+	totalResults->set_element(4, 0, A->get_score());
+	totalResults->set_element(0, 1, B->get_allw());
+	totalResults->set_element(1, 1, B->get_allx());
+	totalResults->set_element(2, 1, B->get_ally());
+	totalResults->set_element(3, 1, B->get_allz());
+	totalResults->set_element(4, 1, B->get_score());
 }
 
 void Game::find_outcome(int iteration)
@@ -101,8 +106,8 @@ void Game::find_outcome(int iteration)
 }
 
 
-vector<int> Game::getResults()
+Matrix<int> * Game::getResults()
 {
-	return totalresults;
+	return totalResults;
 }
 

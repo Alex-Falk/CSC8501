@@ -9,10 +9,11 @@
 using namespace std;
 
 
-Tournament::Tournament(vector<string> files)
+Tournament::Tournament(vector<string> files, char display)
 {
 	filenames = files;
 	results.resize(filenames.size());
+	DISPLAY = display;
 }
 
 
@@ -32,18 +33,32 @@ void Tournament::runTournament()												// Runs the tournament with the give
 		{
 			if (i != j)															// Prevents Strategies from playing themselves
 			{
-				cout << filenames[i] << " vs. " << filenames[j] << "\n";		
+				
 				Game * game = new Game(filenames[i],filenames[j]);
 				game->run(200);													// 200 Iterations for a given game
-				vector<int> game_results = game->getResults();
+				Matrix<int> * game_results = game->getResults();
 
 				results[j].name = filenames[j];
 				results[j].sentences.resize(filenames.size());
 
-				results[i].sentences[j] = game_results[0];
-				results[j].sentences[i] = game_results[1];
+				results[i].sentences[j] = game_results->get_element(4,0);
+				results[j].sentences[i] = game_results->get_element(4,1);
 				
-				cout << "\n";
+				switch (DISPLAY)
+				{
+				case 'A':
+					cout << filenames[i] << " vs. " << filenames[j] << "\n";
+					cout << "A: w:" << game_results->get_element(0, 0) << " x:" << game_results->get_element(1, 0) << " y:" << game_results->get_element(2, 0) << " z:" << game_results->get_element(3, 0) << " sentence:" << game_results->get_element(4, 0) << "\n";
+					cout << "B: w:" << game_results->get_element(0, 1) << " x:" << game_results->get_element(1, 1) << " y:" << game_results->get_element(2, 1) << " z:" << game_results->get_element(3, 1) << " sentence:" << game_results->get_element(4, 1) << "\n";
+					cout << "\n";
+					break;
+				case 'B':
+					cout << filenames[i] << " vs. " << filenames[j] << "\n";
+					cout << "A: sentence: " << game_results->get_element(4, 0) << "\n";
+					cout << "B: sentence: " << game_results->get_element(4, 1) << "\n";
+					cout << "\n";
+					break;
+				}
 
 				delete game;
 			}

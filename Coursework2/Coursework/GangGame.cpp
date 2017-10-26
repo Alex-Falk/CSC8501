@@ -103,8 +103,6 @@ void GangGame::run(int iterations,method mthd)
 	vector<string> stratsA = gangA->return_strats();
 	vector<string> stratsB = gangB->return_strats();
 
-	cout << "\n" << *gangA << "\n" << "vs.\n" << *gangB << "\n\n";
-
 	int nrspygames = 10;
 	vector<int> spygames;
 
@@ -151,9 +149,24 @@ void GangGame::run(int iterations,method mthd)
 
 	}
 
-	totalresults.push_back(gangA->get_scores());
-	totalresults.push_back(gangB->get_scores());
+	totalResults = new Matrix<int>(8, 2);
 
+	totalResults->set_element(0, 0, gangA->get_allw());
+	totalResults->set_element(1, 0, gangA->get_allx());
+	totalResults->set_element(2, 0, gangA->get_ally());
+	totalResults->set_element(3, 0, gangA->get_allz());
+	totalResults->set_element(4, 0, gangA->get_alla());
+	totalResults->set_element(5, 0, gangA->get_allb());
+	totalResults->set_element(6, 0, gangA->get_allc());
+	totalResults->set_element(7, 0, gangA->get_scores());
+	totalResults->set_element(0, 1, gangB->get_allw());
+	totalResults->set_element(1, 1, gangB->get_allx());
+	totalResults->set_element(2, 1, gangB->get_ally());
+	totalResults->set_element(3, 1, gangB->get_allz());
+	totalResults->set_element(4, 1, gangA->get_alla());
+	totalResults->set_element(5, 1, gangA->get_allb());
+	totalResults->set_element(6, 1, gangA->get_allc());
+	totalResults->set_element(7, 1, gangB->get_scores());
 }
 
 bool GangGame::spyGame(bool spy_A, bool spy_B, method mthd)
@@ -213,6 +226,16 @@ bool GangGame::spyGame(bool spy_A, bool spy_B, method mthd)
 	}
 
 	return has_effect;
+}
+
+Gang * GangGame::getGangA()
+{
+	return gangA;
+}
+
+Gang * GangGame::getgangB()
+{
+	return gangB;
 }
 
 

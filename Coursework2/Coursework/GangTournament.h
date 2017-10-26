@@ -4,7 +4,7 @@ class GangTournament :
 	public Tournament
 {
 public:
-	GangTournament(vector<string> files,char leaderChoice);
+	GangTournament(vector<string> files,char leaderChoice, char display);
 	~GangTournament();
 	void runTournament();
 	void readCombinationFile();

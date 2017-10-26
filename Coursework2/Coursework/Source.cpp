@@ -6,7 +6,7 @@
 #include "GangTournament.h"
 #include "GangStrategyGenerator.h"
 #include "GlobalFunctions.h"
-
+#include "Matrix.h"
 using namespace std;
 
 
@@ -19,23 +19,81 @@ int main() {
 	int nstrat;
 	vector<string> filenames;
 
+	char settingChoice;
+
+	Settings * settings = new Settings();
+
+	cout << "Choose a way to proceed\n";
+	cout << "A: Use the settings.txt file\nB: Manually select settings\nC: Use default settings\n";
+	cin >> settingChoice;
+
+	if (settingChoice == 'A') { readSettings(settings); }
+
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	CHOOSING COURSEWORK
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
+
+	if (settingChoice == 'B')
+	{
+		int CWchoice;
+		cout << "Which Coursework do you want to run?\n1: Coursework1\n2: Coursework2\n";
+		cin >> CWchoice;
+
+		(*settings).COURSEWORK = CWchoice;
+	}
+
+
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	CHOOSING DETAIL OF RESULTS
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
+
+	if (settingChoice == 'B')
+	{
+		char detailchoice;
+		cout << "How many of the stats do you want to show? \nA: All statistics (for each game show all alloutcomes variables and sentences) \nB: Only The sentences from each game \nC: Only the final Results \nD: Only the Winner\n";
+		cin >> detailchoice;
+
+		(*settings).DISPLAY = detailchoice;
+	}
+
 	/*
 	-------------------------------------------------------------------------------------------------------------------------
 	GENERATING STRATEGIES
 	-------------------------------------------------------------------------------------------------------------------------
 	*/
-	cout << "Do you want to create strategies? (Y/N) \t";
-	cin >> choice;
-	if (choice == 'Y') {
-		cout << "\n How many strategies do you want to create?\t";
-		cin >> nstrat;
 
-		GangStrategyGenerator * gen = new GangStrategyGenerator();
-		for (int i = 0; i < nstrat; ++i) {
-			gen->generateStrategy(10, ("Strategies\\Strategy" + to_string(i) + ".txt"));
-
-			cout << "Generated Strategy: " << ("Strategy" + to_string(i) + ".txt") << "\n";
+	if (settingChoice == 'B')
+	{
+		cout << "Do you want to create strategies? (Y/N) \t";
+		cin >> choice;
+		if (choice == 'Y') 
+		{
+			cout << "\n How many strategies do you want to create?\t";
+			cin >> nstrat;
+			(*settings).GENERATESTRAT = 'Y';
+			(*settings).NRTOGENERATE = nstrat;
 		}
+		else { (*settings).GENERATESTRAT = 'N'; }
+	}
+
+
+	if ((*settings).GENERATESTRAT == 'Y') 
+	{
+		if ((*settings).COURSEWORK == 1) 
+		{ 
+			StrategyGenerator gen; 
+			generateStrategies(gen, (*settings).NRTOGENERATE);
+		}
+		else if ((*settings).COURSEWORK == 2) 
+		{ 
+			GangStrategyGenerator gen; 
+			generateStrategies(gen, (*settings).NRTOGENERATE);
+		}
+		
 	}
 
 	/*
@@ -43,44 +101,61 @@ int main() {
 	READING IN CUSTOM STRATEGIES
 	-------------------------------------------------------------------------------------------------------------------------
 	*/
-	int nstrat_custom, nstrat_gen;
-	cout << "\n\n";
-	cout << "How many custom strategies do you want to read in?\t";
-	cin >> nstrat_custom;
-	cout << "\n";
 
-	for (int i = 0; i < nstrat_custom; ++i) {
-
-		string filename;
-		cout << "Specify the filename:\t";
-		cin >> filename;
-
-		ifstream file("Strategies\\" + filename);
-		if (file.good()) { filenames.push_back("Strategies\\" + filename); }
-		else { cout << filename << " does not exist\n"; }
-
-		file.close();
+	if (settingChoice == 'B')
+	{
+		int nstrat_custom;
+		cout << "\n\n";
+		cout << "How many custom strategies do you want to read in?\t";
+		cin >> nstrat_custom;
+		cout << "\n";
+		(*settings).NRCUSTOM = nstrat_custom;
 	}
+
+	if ((*settings).NRCUSTOM > 0)
+	{
+		for (int i = 0; i < (*settings).NRCUSTOM; ++i) 
+		{
+			string filename;
+			cout << "Specify the filename:\t";
+			cin >> filename;
+
+			ifstream file("Strategies\\" + filename);
+			if (file.good()) { filenames.push_back("Strategies\\" + filename); }
+			else { cout << filename << " does not exist\n"; }
+
+			file.close();
+		}
+	}
+	
 
 	/*
 	-------------------------------------------------------------------------------------------------------------------------
 	READING IN GENERATED STRATEGIES
 	-------------------------------------------------------------------------------------------------------------------------
 	*/
-	cout << "\n";
-	cout << "How many generated strategies do you want to read in?\t";
-	cin >> nstrat_gen;
+	if (settingChoice == 'B')
+	{
+		int nstrat_gen;
+		cout << "\n";
+		cout << "How many generated strategies do you want to read in?\t";
+		cin >> nstrat_gen;
+		(*settings).NRGENERATED = nstrat_gen;
+	}
 
-	for (int j = 0; j < nstrat_gen; ++j) {
-		ifstream file("Strategies\\Strategy" + to_string(j) + ".txt");
-		if (file.good()) {
-			cout << "Adding Strategy" << to_string(j) << ".txt \n";
-			filenames.push_back("Strategies\\Strategy" + to_string(j) + ".txt");
+	if ((*settings).NRGENERATED > 0) 
+	{
+		for (int j = 0; j < (*settings).NRGENERATED; ++j) 
+		{
+			ifstream file("Strategies\\Strategy" + to_string(j) + ".txt");
+			if (file.good()) 
+			{
+				cout << "Adding Strategy" << to_string(j) << ".txt \n";
+				filenames.push_back("Strategies\\Strategy" + to_string(j) + ".txt");
+			}
+			else { cout << "Strategy" + to_string(j) + ".txt" << " does not exist\n"; }
+			file.close();
 		}
-		else { cout << "Strategy" + to_string(j) + ".txt" << " does not exist\n"; }
-
-
-		file.close();
 	}
 
 	cout << "\n" << filenames.size() << " strategies will be used in the tournament \n \n";
@@ -91,52 +166,66 @@ int main() {
 	-------------------------------------------------------------------------------------------------------------------------
 	*/
 
-	char leaderChoice;
-	cout << "Do you wish to \n A: control the Gang Leader's choic \n B: Always swap  \n C: Always stay \n D: Randomly Decide \n";
-	cin >> leaderChoice;
-	if (leaderChoice != 'A' && leaderChoice != 'B' && leaderChoice != 'C' && leaderChoice != 'D') 
+	if (settingChoice == 'B' && (*settings).COURSEWORK == 2)
 	{
-		cout << "Invalid choice, selecting random\n";
-		leaderChoice = 'D';
+		char leaderChoice;
+		cout << "Do you wish to \n A: control the Gang Leader's choice \n B: Always swap  \n C: Always stay \n D: Randomly Decide \n";
+		cin >> leaderChoice;
+		if (leaderChoice != 'A' && leaderChoice != 'B' && leaderChoice != 'C' && leaderChoice != 'D')
+		{
+			cout << "Invalid choice, selecting random\n";
+			leaderChoice = 'D';
+		}
+		cout << "\n";
+
+		(*settings).LEADERBEHAVIOUR = leaderChoice;
 	}
-	cout << "\n";
+
 
 	/*
 	-------------------------------------------------------------------------------------------------------------------------
-	RUNNING TOURNAMENT
+	SELECTING COMBINATIONS & RUNNING CW1 or CW2
 	-------------------------------------------------------------------------------------------------------------------------
 	*/
 
-	GangTournament t(filenames,leaderChoice);
-
-	char comboChoice;
-	cout << "Do You want to generate a new strategy combinations file? (Y/N)\n";
-	cin >> comboChoice;
-	cout << "\n";
-	switch (comboChoice)
-	{
-	case 'Y':
-	case 'y':
-		int ncombo;
-		cout << "How many do you want to generate?\n";
-		cin >> ncombo;
-		cout << "\n";
-		t.generateCombinations(ncombo);
+	if ((*settings).COURSEWORK == 1)
+	{ 
+		Tournament t(filenames,(*settings).DISPLAY); 
+		runTournament(t);
 	}
+	else if ((*settings).COURSEWORK == 2) 
+	{
+		GangTournament t(filenames, (*settings).LEADERBEHAVIOUR, (*settings).DISPLAY);
+		if (settingChoice == 'B')
+		{
+			char comboChoice;
+			cout << "Do You want to generate a new strategy combinations file? (Y/N)\n";
+			cin >> comboChoice;
+			cout << "\n";
+			switch (comboChoice)
+			{
+			case 'Y':
+			case 'y':
+				int ncombo;
+				cout << "How many do you want to generate?\n";
+				cin >> ncombo;
+				cout << "\n";
+				(*settings).NRCOMBOS = ncombo;
+				(*settings).GENERATECOMBOS = comboChoice;
+			}
+		}
 
-	t.readCombinationFile();
-	t.runTournament();
-	t.printResults();
+		switch ((*settings).GENERATECOMBOS)
+		{
+		case 'Y':
+		case 'y':
+			t.generateCombinations((*settings).NRCOMBOS);
+		}
+		t.readCombinationFile();
 
-	Tournament::result winner = t.findWinner();
-
-	cout << "\nThe Winning combination is: " << shortenStrategyList(winner.name) << " with a total sentence of " << winner.total << " years per gang member\n";
-	//cout << "The scores against individual strategies of this are: \n";
-	//for (int i = 0; i < filenames.size(); ++i) {
-	//	if (filenames[i] != winner.name)
-	//		cout << filenames[i] << "\t" << winner.sentences[i] << "\n";
-	//}
-
-
+		runTournament(t);
+	}
+		
 	return 0;
 }
+

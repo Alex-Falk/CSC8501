@@ -51,6 +51,9 @@
     <ClInclude Include="GlobalFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Prisoner.cpp">
@@ -92,6 +95,9 @@
     <ClCompile Include="GlobalFunctions.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="Strategytest1.txt">
@@ -104,6 +110,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="StrategyCombinations.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Settings.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

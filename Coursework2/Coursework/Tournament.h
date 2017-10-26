@@ -1,5 +1,6 @@
 #pragma once
 #include "Game.h"
+#include "Matrix.h"
 class Tournament
 {
 public:
@@ -9,7 +10,7 @@ public:
 		vector<int> sentences = {};
 	};
 
-	Tournament(vector<string> files);
+	Tournament(vector<string> files,char Display);
 	~Tournament();
 	virtual void runTournament();													// Runs the tournament with the given files
 	virtual result findWinner();													// Returns the strategy that has the lowest cumulative sentence
@@ -19,6 +20,8 @@ public:
 protected:
 	vector<string> filenames; // = { "test.txt","test2.txt" };
 	vector<result> results;
+	Matrix<result> MatrixResults;
+	char DISPLAY;
 
 
 

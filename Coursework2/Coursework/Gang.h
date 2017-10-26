@@ -25,6 +25,13 @@ public:
 	void giveSpy();																// Pick a Member of the gang to be a spy
 	int findSpy(method method);													// Runs logic to choose a spy to see if he is found/detected
 	friend ostream& operator<<(ostream& ostr, Gang gang);						// Overload operator << so gang can be printed out
+	int get_allw();
+	int get_allx();
+	int get_ally();
+	int get_allz();
+	int get_alla();
+	int get_allb();
+	int get_allc();
 protected:
 	GangMember* gang_members[5];
 	vector<string> strats;

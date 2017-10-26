@@ -63,14 +63,12 @@ void GangTournament::runTournament()
 				cout << "A: w:" << game_results->get_element(0, 0) << " x:" << game_results->get_element(1, 0) << " y:" << game_results->get_element(2, 0) << " z:" << game_results->get_element(3, 0) 
 					<< " a:" << game_results->get_element(4, 0) << " b:" << game_results->get_element(5, 0) << " c:" << game_results->get_element(6, 0) << " sentence:" << game_results->get_element(7, 0) << "\n";
 				cout << "B: w:" << game_results->get_element(0, 1) << " x:" << game_results->get_element(1, 1) << " y:" << game_results->get_element(2, 1) << " z:" << game_results->get_element(3, 1) 
-					<< " a:" << game_results->get_element(4, 1) << " b:" << game_results->get_element(5, 1) << " c:" << game_results->get_element(6, 1) << " sentence:" << game_results->get_element(7, 1) << "\n";
-				cout << "\n";
+					<< " a:" << game_results->get_element(4, 1) << " b:" << game_results->get_element(5, 1) << " c:" << game_results->get_element(6, 1) << " sentence:" << game_results->get_element(7, 1) << "\n"; ;
 				break;
 			case 'B':
 				cout << "\n" << *(game->getGangA()) << "\n" << "vs.\n" << *(game->getgangB()) << "\n\n";
 				cout << "A: sentence: " << game_results->get_element(7, 0) << "\n";
 				cout << "B: sentence: " << game_results->get_element(7, 1) << "\n";
-				cout << "\n";
 				break;
 				
 			}

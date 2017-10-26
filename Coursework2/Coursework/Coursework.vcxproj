@@ -120,6 +120,7 @@
     <ClInclude Include="GangStrategyGenerator.h" />
     <ClInclude Include="GangTournament.h" />
     <ClInclude Include="GlobalFunctions.h" />
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="Prisoner.h" />
     <ClInclude Include="Strategy.h" />
     <ClInclude Include="StrategyGenerator.h" />
@@ -134,6 +135,7 @@
     <ClCompile Include="GangStrategyGenerator.cpp" />
     <ClCompile Include="GangTournament.cpp" />
     <ClCompile Include="GlobalFunctions.cpp" />
+    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Prisoner.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Strategy.cpp" />
@@ -145,6 +147,7 @@
     <Text Include="Strategytest2.txt" />
     <Text Include="Strategytest3.txt" />
     <Text Include="StrategyCombinations.txt" />
+    <Text Include="Settings.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
