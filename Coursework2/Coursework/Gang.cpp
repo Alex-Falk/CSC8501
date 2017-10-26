@@ -44,7 +44,6 @@ Gang::~Gang()
 {
 }
 
-// TODO: Check about this, might not work
 void Gang::get_strat(GangStrategy ** strat, string file)
 {
 	// Reads in strategy file
@@ -65,7 +64,7 @@ void Gang::get_strat(GangStrategy ** strat, string file)
 }
 
 vector<Decision> Gang::get_gang_decisions(int iteration)
-{
+{	// Finds out what each member of the gang decides and returns all the decisions
 	vector<Decision> decisions(5);
 	int betrays = 0;
 
@@ -98,8 +97,7 @@ vector<Decision> Gang::get_gang_decisions(int iteration)
 }
 
 void Gang::sentence_gang(GangMember::Outcome outcome)
-{
-	// Loop through each gang member and sentence them according to the given outcome
+{	// Loop through each gang member and sentence them according to the given outcome
 	for (int i = 0; i < 5; ++i)
 	{
 		gang_members[i]->sentence(outcome);
@@ -126,8 +124,7 @@ vector<string> Gang::return_strats()
 }
 
 void Gang::giveSpy()
-{
-	// Set the first member of the gang to be the leader and the spy to be selected randomly from the remaining members
+{	// Set the first member of the gang to be the leader and the spy to be selected randomly from the remaining members
 	withSpy = true;
 	spy_idx = rand() % 4 + 1;
 	gang_members[spy_idx]->makeSpy();
@@ -135,14 +132,14 @@ void Gang::giveSpy()
 }
 
 int Gang::findSpy(method mthd)
-{	// 
+{	// Runs logic to choose a spy to see if he is found/detected
 	int found_spy = 0;
 	
 	if (withSpy) {
 
 		int guess_spy_idx, not_spy_idx;
 
-
+		// Checks if spy should be manually or randomly guessed
 		switch (mthd)
 		{
 		case CUSTOM:
@@ -158,7 +155,8 @@ int Gang::findSpy(method mthd)
 		}
 
 		int other_members[3];
-
+		
+		// Sets up a list of the other gang members which have not been guessed as the spy
 		switch (guess_spy_idx) {
 		case 1:
 			other_members[0] = 2;
@@ -188,8 +186,22 @@ int Gang::findSpy(method mthd)
 			break;
 		}
 		
-		not_spy_idx = other_members[rand() % 3];
+		// Randomly selects one of the other_members to be revealed as not being the spy. If it chooses the spy take the next (or previous member)
+		int not_spy_member = rand() % 3;
+		not_spy_idx = other_members[not_spy_member];
+		if (not_spy_idx == spy_idx) {
+			switch (not_spy_member)
+			{
+			case 2:
+				not_spy_idx = other_members[not_spy_member - 1];
+				break;
+			default:
+				not_spy_idx = other_members[not_spy_member + 1];
+				break;
+			}
+		}
 
+		// Array of the two left over indeces of prisoners that are not guessed or revealed
 		int new_other_members[2];
 		for (int i = 0; i < 3; ++i)
 		{
@@ -203,6 +215,7 @@ int Gang::findSpy(method mthd)
 
 		char switch_choice;
 
+		// Choose whether to switch the guess or not depending on the method provided
 		switch (mthd)
 		{
 		case CUSTOM:
@@ -222,6 +235,7 @@ int Gang::findSpy(method mthd)
 			else { switch_choice = 'N'; }
 		}
 
+		// If decided to switch choose another person to pick
 		switch (switch_choice) {
 		case 'Y':
 		case 'y':
@@ -231,16 +245,24 @@ int Gang::findSpy(method mthd)
 				cout << "Choose another gang member that is not " << guess_spy_idx << " or " << not_spy_idx << "\t";
 				cin >> guess_spy_idx;
 				cout << "\n";
+
+				if (guess_spy_idx == spy_idx) { cout << "You have found the Spy!\n\n"; }
+				else { cout << "You have not found the Spy! He was " << spy_idx << "\n\n"; }
 				break;
 
 			case SWAP:
 				guess_spy_idx = new_other_members[rand() % 2];
+				break;
 			}
-			if (guess_spy_idx - 1 == spy_idx) { found_spy = 2; }
+			if (guess_spy_idx == spy_idx) { found_spy = 2; }
 			break;
 		default:
-			if (guess_spy_idx - 1 == spy_idx) {	found_spy = 1; }
+			if (guess_spy_idx == spy_idx) {	found_spy = 1; }
 			break;
+		case 'N':
+		case 'n':
+			if (guess_spy_idx == spy_idx) { cout << "You have found the Spy!\n\n"; }
+			else { cout << "You have not found the Spy! He was " << spy_idx << "\n\n"; }
 		}
 	}
 
@@ -282,7 +304,7 @@ int Gang::get_allc()
 }
 
 ostream& operator<<(ostream& ostr, Gang gang)
-{
+{	// Overload the operator << to print out a gang as a list of the strategy numbers used
 	ostr << "Strategies: ";
 	for (int i = 0; i < 5; ++i)
 	{

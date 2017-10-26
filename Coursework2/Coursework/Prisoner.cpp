@@ -18,18 +18,14 @@ void Prisoner::add_score(int x)
 {
 	myscore += x;
 }
-//
-//Strategy Prisoner::get_strategy()
-//{
-//	return *strat;
-//}
 
-void Prisoner::set_strategy(Strategy * strategy) {
+void Prisoner::set_strategy(Strategy * strategy) 
+{
 	strat = strategy;
 }
 
-void Prisoner::sentence(Outcome outcome) {
-	
+void Prisoner::sentence(Outcome outcome) 
+{	// Adds the sentence in years to this Gang Member, sets the last_outcome and updates alloutcome variables
 	last_outcome = outcome;
 	switch (outcome) {
 	case W:
@@ -53,7 +49,7 @@ void Prisoner::sentence(Outcome outcome) {
 }
 
 Decision Prisoner::get_decision(int iteration)
-{
+{	// Finds out what the prisoner decides for the current iteration
 	this->iteration = iteration;
 	return strat->decide_result(*this);
 }
@@ -84,7 +80,7 @@ int Prisoner::get_iteration()
 }
 
 string Prisoner::get_last_outcome()
-{
+{	// Returns the last outcome as a string
 	switch (last_outcome) {
 	case W:
 		return "W";

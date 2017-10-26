@@ -67,26 +67,27 @@ void Strategy::interpret()
 {	// Takes the vector of strings read in by the read(filename) function and attempts interpretation
 	for (int i = 0; i < lines.size(); ++i) 
 	{
-		int first_letter_idx = lines[i].find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");									
+		// find the index of the first letter (the start of the first command
+		int first_letter_idx = lines[i].find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");			
+		// The line number of the current line
 		int thisline = stoi(lines[i].substr(0, first_letter_idx));
-
 		linenos.push_back(thisline);
 
 		if (lines[i].substr(first_letter_idx, 2) == "IF") 
-		{
+		{	// Check if the IF statement is syntactically correct
 			string lhs, op, rhs, gotoline;
 
 			int size = lines[i].size();
 			int op_pos = lines[i].find_first_of("<=>");
 			int goto_pos = lines[i].find("GOTO");
 
-			
 			if (goto_pos == string::npos) 
 			{	// Error if the if statement is not followed by a "GOTO"
 				throw runtime_error("Invalid If statement on line " + to_string(thisline) + " " + lines[i]);
 			}
 
-
+			// lhs: string from first letter up the operator
+			// rhs: string from operator up to the GOTO statement
 			lhs = lines[i].substr(first_letter_idx + 2, op_pos - (first_letter_idx + 2));
 			op = lines[i][op_pos];
 			rhs = lines[i].substr(op_pos + 1, goto_pos - (op_pos + 1));
@@ -103,7 +104,7 @@ void Strategy::interpret()
 		}
 	}
 
-	// Interpret the first line ( and recursively the others)
+	// Interpret the first line ( and recursively the others )
 	interpret_line(linenos[0], &root);
 
 }
@@ -114,6 +115,7 @@ void Strategy::interpret_line(int thisline, node ** tree)
 
 	currentline = thisline;
 
+	// find the index of the current linenumber
 	int i = find(linenos.begin(), linenos.end(), thisline) - linenos.begin();
 	int first_letter_idx = lines[i].find_first_of("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 
@@ -121,7 +123,6 @@ void Strategy::interpret_line(int thisline, node ** tree)
 	{
 		*tree = new node;
 		(*tree)->lineno = thisline;
-
 	}
 
 	if (lines[i].substr(first_letter_idx, 2) == "IF") 
@@ -133,6 +134,8 @@ void Strategy::interpret_line(int thisline, node ** tree)
 		int goto_pos = lines[i].find("GOTO");
 		int nextline = linenos[i + 1];
 
+		// lhs: string from first letter up the operator
+		// rhs: string from operator up to the GOTO statement
 		lhs = lines[i].substr(first_letter_idx + 2, op_pos - (first_letter_idx + 2));
 		op = lines[i][op_pos];
 		rhs = lines[i].substr(op_pos + 1, goto_pos - (op_pos + 1));
@@ -186,14 +189,17 @@ bool Strategy::ifstatement(string lhs, char op, string rhs, Prisoner A)
 	int v1 = 0, v2 = 0;
 	bool result = false;
 
+	// get the variables for the left and right hand side of the condition
 	vars var_left = getvar(lhs, A);
 	vars var_right = getvar(rhs, A);
 
 	switch (op) {
 	case '=':
+		// Compare the variables. the vars variable will have either an int or a string value, if its an int compare those, if its a string compare those, return true if either of these are true
 		if ((var_left.intvar == var_right.intvar && var_left.intvar != 0) || (var_left.stringvar == var_right.stringvar && var_left.stringvar != "")) { result = true; }
 		break;
 	case '>':
+		// This is only valid for int variables to compare these
 		if (var_left.intvar > var_right.intvar) { result = true; }
 		break;
 	case '<':

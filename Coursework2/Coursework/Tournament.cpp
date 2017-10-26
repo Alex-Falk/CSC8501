@@ -11,7 +11,7 @@ using namespace std;
 
 
 Tournament::Tournament(vector<string> files, char display)
-{
+{	// Initialise the tournament with a list of filenames, resize the results accordingly and save the display setting
 	filenames = files;
 	results.resize(filenames.size());
 	DISPLAY = display;
@@ -22,10 +22,13 @@ Tournament::~Tournament() {
 }
 
 
-void Tournament::runTournament(string filename, Settings * settigs)				// Runs the tournament with the given files (from instantiation)
-{
+void Tournament::runTournament(string filename, Settings * settings)				
+{	// Runs the tournament with the given files (from instantiation)
+	// Open the output file
 	ofstream outFile;
 	outFile.open(filename);
+
+	// Loops to ensure each strategy plays against each other strategy
 	for (int i = 0; i < filenames.size(); ++i)
 	{
 		int totalA = 0, totalB = 0;
@@ -33,14 +36,17 @@ void Tournament::runTournament(string filename, Settings * settigs)				// Runs t
 		results[i].sentences.resize(filenames.size());
 
 		for (int j = i; j < filenames.size(); ++j) 
-		{
-			if (i != j)															// Prevents Strategies from playing themselves
+		{	// Prevent Strategies from playing themselves
+			if (i != j)															
 			{
-				
+				// Create a game with two strategies, and run it with the chones number of iterations
 				Game * game = new Game(filenames[i],filenames[j]);
-				game->run(200);													// 200 Iterations for a given game
+				game->run((*settings).ITERATIONS);		
+				
+				// Obtain the results of the game
 				Matrix<int> * game_results = game->getResults();
 
+				// store the results
 				results[j].name = filenames[j];
 				results[j].sentences.resize(filenames.size());
 
@@ -48,7 +54,7 @@ void Tournament::runTournament(string filename, Settings * settigs)				// Runs t
 				results[j].sentences[i] = game_results->get_element(4,1);
 				
 				switch (DISPLAY)
-				{
+				{	// Print out the results with the chosen level of detail
 				case 'A':
 					cout << shortenStrategyList(filenames[i]) << " vs. " << shortenStrategyList(filenames[j]) << "\n";
 					cout << "A: w:" << game_results->get_element(0, 0) << " x:" << game_results->get_element(1, 0) << " y:" << game_results->get_element(2, 0) << " z:" << game_results->get_element(3, 0) << " sentence:" << game_results->get_element(4, 0) << "\n";

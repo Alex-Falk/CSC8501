@@ -6,7 +6,6 @@ class GangMember;
 
 // GangStrategy extending Strategy Class.
 // It allows for interpretation of strategies with Gang Logic
-// TODO: Store Gang strategies in different folder?
 class GangStrategy :
 	public Strategy
 {

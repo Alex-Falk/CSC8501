@@ -63,13 +63,10 @@ Game::~Game()
 
 void Game::run(int iterations) 
 {	// Runs the game with a given number of iterations
-	for (int i = 0; i < iterations; i++) 
-	{
-		find_outcome(i);
-	}
+	for (int i = 0; i < iterations; i++) { find_outcome(i); }
 
+	// Set up the elements of the totalResults matrix that stores all the outcomes for both prisoners
 	totalResults = new Matrix<int>(5, 2);
-
 	totalResults->set_element(0, 0, A->get_allw());
 	totalResults->set_element(1, 0, A->get_allx());
 	totalResults->set_element(2, 0, A->get_ally());

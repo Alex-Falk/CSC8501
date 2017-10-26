@@ -17,10 +17,9 @@ public:
 	virtual result findWinner();													// Returns the strategy that has the lowest cumulative sentence
 	virtual void printResults();													// Prints the results out in the console
 	virtual void printResults_toFile(string filename);
-	//virtual void saveResults(string filename);
 	virtual void setFilenames(vector<string> names) { filenames = names; };			// Takes a vector of filenames in order to use them as a list of strategies to use in the tournament
 protected:
-	vector<string> filenames; // = { "test.txt","test2.txt" };
+	vector<string> filenames;
 	vector<result> results;
 	Matrix<result> MatrixResults;
 	char DISPLAY;

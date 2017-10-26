@@ -58,41 +58,42 @@ void GangGame::find_outcome(int iteration)
 	GangMember::Outcome gangB_outcome;
 
 	if (betrays_A == 5 && betrays_B == 5)
-	{
+	{	// All betray on both sides
 		gangA_outcome = GangMember::Z;
 		gangB_outcome = GangMember::Z;
 	}
 	else if (betrays_A == 0 && betrays_B == 0)
-	{
+	{	// All silent on both sides
 		gangA_outcome = GangMember::W;
 		gangB_outcome = GangMember::W;
 	}
 	else if (betrays_A == 5 && betrays_B == 0)
-	{
+	{	// all betray in A, all silent in B
 		gangA_outcome = GangMember::Y;
 		gangB_outcome = GangMember::X;
 	}
 	else if (betrays_A == 0 && betrays_B == 5)
-	{
+	{	// all betray in B, all silent in A
 		gangA_outcome = GangMember::X;
 		gangB_outcome = GangMember::Y;
 	}
 	else if (betrays_A == betrays_B)
-	{
+	{	// equal amounts of betray in A and B
 		gangA_outcome = GangMember::C;
 		gangB_outcome = GangMember::C;
 	}
 	else if (betrays_A > betrays_B)
-	{
+	{	// more betrays in A than B
 		gangA_outcome = GangMember::A;
 		gangB_outcome = GangMember::B;
 	}
 	else if (betrays_A < betrays_B)
-	{
+	{	// less betrays in A than B
 		gangA_outcome = GangMember::B;
 		gangB_outcome = GangMember::A;
 	}
 
+	// Sentence the gangs according to the outcome
 	gangA->sentence_gang(gangA_outcome);
 	gangB->sentence_gang(gangB_outcome);
 }
@@ -153,7 +154,7 @@ void GangGame::run(int iterations,int nrspygames,method mthd)
 	}
 
 
-
+	// Set up the elements of the totalResults matrix that stores all the outcomes for both gangs
 	totalResults = new Matrix<int>(8, 2);
 	totalResults->set_element(0, 0, gangA->get_allw());
 	totalResults->set_element(1, 0, gangA->get_allx());

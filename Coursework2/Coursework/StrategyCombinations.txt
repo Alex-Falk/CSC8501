@@ -1,10 +1,4 @@
-Strategies2\Strategy7.txt Strategies2\Strategy4.txt Strategies2\Strategy9.txt Strategies2\Strategy0.txt Strategies2\Strategy4.txt
-Strategies2\Strategy3.txt Strategies2\Strategy3.txt Strategies2\Strategy7.txt Strategies2\Strategy0.txt Strategies2\Strategy2.txt
-Strategies2\Strategy8.txt Strategies2\Strategy7.txt Strategies2\Strategy5.txt Strategies2\Strategy5.txt Strategies2\Strategy7.txt
-Strategies2\Strategy7.txt Strategies2\Strategy5.txt Strategies2\Strategy4.txt Strategies2\Strategy9.txt Strategies2\Strategy9.txt
-Strategies2\Strategy4.txt Strategies2\Strategy0.txt Strategies2\Strategy7.txt Strategies2\Strategy0.txt Strategies2\Strategy7.txt
-Strategies2\Strategy6.txt Strategies2\Strategy7.txt Strategies2\Strategy6.txt Strategies2\Strategy9.txt Strategies2\Strategy2.txt
-Strategies2\Strategy1.txt Strategies2\Strategy3.txt Strategies2\Strategy6.txt Strategies2\Strategy9.txt Strategies2\Strategy3.txt
-Strategies2\Strategy8.txt Strategies2\Strategy4.txt Strategies2\Strategy2.txt Strategies2\Strategy1.txt Strategies2\Strategy7.txt
-Strategies2\Strategy0.txt Strategies2\Strategy1.txt Strategies2\Strategy4.txt Strategies2\Strategy5.txt Strategies2\Strategy0.txt
-Strategies2\Strategy0.txt Strategies2\Strategy9.txt Strategies2\Strategy2.txt Strategies2\Strategy4.txt Strategies2\Strategy6.txt
+Strategies2\Strategy6.txt Strategies2\Strategy9.txt Strategies2\Strategy0.txt Strategies2\Strategy8.txt Strategies2\Strategy1.txt
+Strategies2\Strategy5.txt Strategies2\Strategy8.txt Strategies2\Strategy6.txt Strategies2\Strategy8.txt Strategies2\Strategy8.txt
+Strategies2\Strategy2.txt Strategies2\Strategy7.txt Strategies2\Strategy8.txt Strategies2\Strategy5.txt Strategies2\Strategy2.txt
+Strategies2\Strategy0.txt Strategies2\Strategy4.txt Strategies2\Strategy4.txt Strategies2\Strategy4.txt Strategies2\Strategy5.txt

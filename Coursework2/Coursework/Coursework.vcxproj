@@ -135,7 +135,6 @@
     <ClCompile Include="GangStrategyGenerator.cpp" />
     <ClCompile Include="GangTournament.cpp" />
     <ClCompile Include="GlobalFunctions.cpp" />
-    <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Prisoner.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Strategy.cpp" />

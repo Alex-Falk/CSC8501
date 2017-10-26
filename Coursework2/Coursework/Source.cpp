@@ -10,8 +10,7 @@
 using namespace std;
 
 
-
-int main() {
+bool game() {
 
 	srand(time(NULL));
 
@@ -31,6 +30,7 @@ int main() {
 	string outfilename;
 	cout << "Enter an output file name (enter 'default' for the default outfile.txt)\n";
 	cin >> outfilename;
+	cout << "\n";
 
 	if (outfilename == "default")
 	{
@@ -46,8 +46,18 @@ int main() {
 	cout << "Choose a way to proceed\n";
 	cout << "A: Use the settings.txt file\nB: Manually select settings\nC: Use default settings\n";
 	cin >> settingChoice;
+	cout << "\n";
 
-	if (settingChoice == 'A') { readSettings(settings); }
+	if (settingChoice == 'A') { 
+		try {
+			readSettings(settings);
+		}
+		catch (const runtime_error& rte) {
+			cout << rte.what();
+			cout << "selecting manual options instead\n\n";
+			settingChoice = 'B';
+		}
+	}
 
 	/*
 	-------------------------------------------------------------------------------------------------------------------------
@@ -231,7 +241,7 @@ int main() {
 	if (settingChoice == 'B' && (*settings).COURSEWORK == 2)
 	{
 		char leaderChoice;
-		cout << "Do you wish to \n A: control the Gang Leader's choice \n B: Always swap  \n C: Always stay \n D: Randomly Decide \n";
+		cout << "Do you wish to \n A: control the Gang Leader's choice (WARNING: depending on number of games with spies, you might have to do this a lot!!) \n B: Always swap  \n C: Always stay \n D: Randomly Decide \n";
 		cin >> leaderChoice;
 		if (leaderChoice != 'A' && leaderChoice != 'B' && leaderChoice != 'C' && leaderChoice != 'D')
 		{
@@ -250,10 +260,11 @@ int main() {
 	-------------------------------------------------------------------------------------------------------------------------
 	*/
 
-	system("CLS");
 
 	if ((*settings).COURSEWORK == 1)
 	{ 
+		system("CLS");
+
 		Tournament t(filenames,(*settings).DISPLAY); 
 		runTournament(t, outfilename, settings);
 	}
@@ -289,9 +300,36 @@ int main() {
 		}
 		t.readCombinationFile();
 
+		system("CLS");
+
 		runTournament(t, outfilename, settings);
 	}
 		
+	char more;
+	cout << "\n\nDo you want to play again?(Y/N)\t";
+	cin >> more;
+	cout << "\n";
+
+	switch (more)
+	{
+	case 'Y':
+	case 'y':
+		return true;
+		break;
+	default:
+		return false;
+		break;
+	}
+}
+
+int main() {
+	bool playing = true;
+	while (playing)
+	{
+		system("CLS");
+		playing = game();
+	}
+
 	return 0;
 }
 

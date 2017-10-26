@@ -20,12 +20,19 @@ GangTournament::~GangTournament()
 }
 
 void GangTournament::runTournament(string filename, Settings * settings)
-{
+{	// Runs the tournament with the given files (from instantiation)
 	ofstream outFile;
 	outFile.open(filename);
+
+
 	int gamecounter = 0;
+	int spygames = 0;
+
+	// calculate the number of games which will have spies
 	int iterations = (*settings).ITERATIONS;
-	int spygames = iterations / (*settings).SPYCHANCE;
+	if ((*settings).SPYCHANCE != 0) { spygames = (iterations * (*settings).SPYCHANCE) / 100; }
+
+	// Loops to ensure each strategy combination plays against each other strategy combination
 	for (int i = 0; i < combinations.size(); ++i)
 	{
 		int totalA = 0, totalB = 0;
@@ -33,10 +40,12 @@ void GangTournament::runTournament(string filename, Settings * settings)
 		results[i].sentences.resize(combinations.size());
 
 		for (int j = i; j < combinations.size(); j++)
-		{
+		{	
+			// Count the number of games. Set up a Game with the given combinations
 			gamecounter++;
 			GangGame * game = new GangGame(combinations[i], combinations[j]);
 
+			//  Choose by which method the leader swaps or not swaps when trying to find the spy
 			method mthd = method::RANDOM;
 			switch (leaderChoice)
 			{
@@ -54,8 +63,10 @@ void GangTournament::runTournament(string filename, Settings * settings)
 				break;
 			}
 
+			// run the game
 			game->run(iterations,spygames, mthd);
 
+			// Get the results for the game, and the outcomes from the attempts at finding a spy
 			Matrix<int> * game_results = game->getResults();
 			vector<int> spy_results = game->get_spyResults();
 
@@ -68,7 +79,7 @@ void GangTournament::runTournament(string filename, Settings * settings)
 			
 
 			switch (DISPLAY)
-			{
+			{	// Print out the results with the chosen level of detail
 			case 'A':
 				printFull(game, gamecounter, game_results, spy_results, cout);
 				printFull(game, gamecounter, game_results, spy_results, outFile);
@@ -94,7 +105,7 @@ void GangTournament::runTournament(string filename, Settings * settings)
 }
 
 ostream& GangTournament::printFull(GangGame* game, int gamecounter, Matrix<int> * game_results, vector<int> spy_results, ostream& ostr)
-{
+{	// Print out the full detail of the game with outcomes, sentences and spy results
 	ostr << "\n------------------------------------------------------------------------------------------------\n";
 	ostr << "Game " << gamecounter << "\n\n";
 	ostr << "\n" << *(game->getGangA()) << "\n" << "vs.\n" << *(game->getgangB()) << "\n\n";
@@ -112,7 +123,7 @@ ostream& GangTournament::printFull(GangGame* game, int gamecounter, Matrix<int> 
 }
 
 ostream& GangTournament::printHalf(GangGame* game, int gamecounter, Matrix<int> * game_results, vector<int> spy_results, ostream& ostr)
-{
+{	// Only print the sentences of each game
 	ostr << "\n------------------------------------------------------------------------------------------------\n";
 	ostr << "Game " << gamecounter << "\n\n";
 	ostr << "\n" << *(game->getGangA()) << "\n" << "vs.\n" << *(game->getgangB()) << "\n\n";
@@ -124,7 +135,7 @@ ostream& GangTournament::printHalf(GangGame* game, int gamecounter, Matrix<int> 
 }
 
 void GangTournament::readCombinationFile()
-{
+{	// Read in a file that stores a list of strategy combinations to use
 	ifstream inFile;
 	inFile.open("StrategyCombinations.txt");
 
@@ -142,7 +153,7 @@ void GangTournament::readCombinationFile()
 }
 
 void GangTournament::generateCombinations(int nrcombo)
-{
+{	// Generate a number of combinations and write them to a file
 	ofstream outFile;
 	outFile.open("StrategyCombinations.txt");
 
@@ -160,7 +171,7 @@ void GangTournament::generateCombinations(int nrcombo)
 }
 
 void GangTournament::printResults()
-{
+{	// Print out the final total sentences for each strategy combination
 	cout << "\n------------------------------------------------------------------------------------------------\n\n";
 	for (int i = 0; i < results.size(); ++i)
 	{
@@ -174,7 +185,7 @@ void GangTournament::printResults()
 }
 
 void GangTournament::printResults_toFile(string filename)
-{
+{	// Print out the final total sentences for each strategy combination and the winning combination to a file
 	ofstream outFile;
 	outFile.open(filename, std::ios::app);
 

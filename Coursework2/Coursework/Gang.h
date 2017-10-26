@@ -6,7 +6,6 @@
 
 using namespace std;
 
-//class GangMember;
 class GangStrategy;
 enum class Decision;
 enum method { CUSTOM, SWAP, STAY, RANDOM };										// Method of spy dection

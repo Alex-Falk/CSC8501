@@ -21,7 +21,7 @@ struct Settings {
 
 };
 
-string shortenStrategyList(string strats);
-void readSettings(Settings * settings);
-void runTournament(Tournament& t,string outfilename, Settings * settings);
-void generateStrategies(StrategyGenerator& gen, int NRTOGENERATE,Settings * settings);
+string shortenStrategyList(string strats);												// Takes a string which has 1 or more strategy file names and shortens it to just the number of strategy
+void readSettings(Settings * settings);													// Reads in the settings file and assigns the Setting variables
+void runTournament(Tournament& t,string outfilename, Settings * settings);				// Runs a tournament (or GangTournament with a given output filename and the chosen settings
+void generateStrategies(StrategyGenerator& gen, int NRTOGENERATE,Settings * settings);	// Generates a set of strategies (or GangStrategies)

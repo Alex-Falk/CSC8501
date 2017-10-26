@@ -81,7 +81,7 @@ void GangMember::sentence(Outcome outcome)
 }
 
 string GangMember::get_last_outcome()
-{
+{	// Returns the last outcome as a string
 	switch (last_outcome) {
 	case W:
 		return "W";
