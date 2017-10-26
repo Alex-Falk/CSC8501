@@ -1,6 +1,8 @@
 #include "Gang.h"
 #include "GangMember.h"
 #include "GangStrategy.h"
+#include <thread>
+#include <algorithm>
 
 // TODO: Assign each gang member a strategy
 // TODO: Spy mechanic
@@ -13,8 +15,11 @@ Gang::Gang(string fileA, string fileB, string fileC, string fileD, string fileE)
 		gang_members[i] = new GangMember();
 	}
 
-	// This sets up the strats to be the list of strategies excluding the "Strategies\" from the name
-	strats = { fileA.substr(11), fileB.substr(11), fileC.substr(11), fileD.substr(11), fileE.substr(11) };
+	// create vector of threads
+	vector<thread> threads;
+
+	// This sets up the strats to be the list of strategies excluding the "Strategies2\" from the name
+	strats = { fileA.substr(12), fileB.substr(12), fileC.substr(12), fileD.substr(12), fileE.substr(12) };
 
 	// Set up 5 strategy pointers
 	GangStrategy * stratA = new GangStrategy(); 
@@ -23,12 +28,21 @@ Gang::Gang(string fileA, string fileB, string fileC, string fileD, string fileE)
 	GangStrategy * stratD = new GangStrategy();
 	GangStrategy * stratE = new GangStrategy();
 
+	GangStrategy * strategies[5] = { stratA,stratB,stratC,stratD,stratE };
+	string fileNames[5] = { fileA,fileB,fileC,fileD,fileE };
+
 	// Read in the strategy and interpret it, then save it the the pointed to strategies
-	get_strat(&stratA, fileA);
-	get_strat(&stratB, fileB);
-	get_strat(&stratC, fileC);
-	get_strat(&stratD, fileD);
-	get_strat(&stratE, fileE);
+	for (int i = 0; i < 5; ++i)
+	{	// Add a thread that runs and interprets the strategy
+		threads.push_back(std::thread(&Gang::get_strat, this, &strategies[i], fileNames[i]));
+	}
+
+	for (int i = 0; i < threads.size(); ++i)
+	{	// join the threads
+		if (threads[i].joinable())
+			threads[i].join();
+	}
+
 
 	// If all the strategies exist set the up the Gang Members wirh each strategy
 	if (stratA && stratB && stratC && stratD && stratE) {
