@@ -16,10 +16,12 @@ struct Settings {
 	char GENERATECOMBOS = 'Y';
 	int NRCOMBOS = 10;
 	char DISPLAY = 'A';
+	int SPYCHANCE= 10;
+	int ITERATIONS = 200;
 
 };
 
 string shortenStrategyList(string strats);
 void readSettings(Settings * settings);
-void runTournament(Tournament& t);
-void generateStrategies(StrategyGenerator& gen, int NRTOGENERATE);
+void runTournament(Tournament& t,string outfilename, Settings * settings);
+void generateStrategies(StrategyGenerator& gen, int NRTOGENERATE,Settings * settings);

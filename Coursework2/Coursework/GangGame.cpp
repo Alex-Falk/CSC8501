@@ -97,14 +97,14 @@ void GangGame::find_outcome(int iteration)
 	gangB->sentence_gang(gangB_outcome);
 }
 
-void GangGame::run(int iterations,method mthd)
+void GangGame::run(int iterations,int nrspygames,method mthd)
 {	// Runs one game with a given number of iterations and given method of spy selection
 
 	vector<string> stratsA = gangA->return_strats();
 	vector<string> stratsB = gangB->return_strats();
 
-	int nrspygames = 10;
 	vector<int> spygames;
+	spyResults.resize(9);
 
 	// Set up a list of games which will have at least one spy in them
 	for (int i = 0; i < nrspygames; ++i)
@@ -133,12 +133,15 @@ void GangGame::run(int iterations,method mthd)
 			{
 			case 0:	// Only gang A gets a spy
 				has_effect = spyGame(true, false, mthd);
+				spyResults[0] = spyResults[0] + 1;
 				break;
 			case 1:	// Only gang B gets a spy
 				has_effect = spyGame(false, true, mthd);
+				spyResults[1] = spyResults[1] + 1;
 				break;
 			case 2:	// Both gangs get a spy
 				has_effect = spyGame(true, true, mthd);
+				spyResults[2] = spyResults[2] + 1;
 				break;
 			}
 		}
@@ -149,8 +152,9 @@ void GangGame::run(int iterations,method mthd)
 
 	}
 
-	totalResults = new Matrix<int>(8, 2);
 
+
+	totalResults = new Matrix<int>(8, 2);
 	totalResults->set_element(0, 0, gangA->get_allw());
 	totalResults->set_element(1, 0, gangA->get_allx());
 	totalResults->set_element(2, 0, gangA->get_ally());
@@ -172,8 +176,12 @@ void GangGame::run(int iterations,method mthd)
 bool GangGame::spyGame(bool spy_A, bool spy_B, method mthd)
 {	// This runs if a game has a spy and will follow the required logic and sentencing
 	// Set up spies
-	if (spy_A) { gangA->giveSpy(); }
-	if (spy_B) { gangB->giveSpy(); }
+	if (spy_A) { 
+		gangA->giveSpy(); 
+	}
+	if (spy_B) { 
+		gangB->giveSpy(); 
+	}
 
 	bool has_effect = true;
 
@@ -189,26 +197,32 @@ bool GangGame::spyGame(bool spy_A, bool spy_B, method mthd)
 		{
 		case 0: // SPY IN B WAS NOT FOUND
 			has_effect = false;
+			spyResults[8] = spyResults[8] + 1;
 			break;
 		case 1: // SPY IN B WAS FOUND, NO SWITCH
 			gangA->add_scores(5);
 			gangB->add_scores(0);
+			spyResults[6] = spyResults[6] + 1;
 			break;
 		case 2: // SPY IN B WAS FOUND, SWITCH
 			gangA->add_scores(5);
 			gangB->add_scores(2);
+			spyResults[5] = spyResults[5] + 1;
 			break;
 		}
+		break;
 	case 1: // SPY IN A WAS FOUND, NO SWITCH
 		if (spyB_result == 0)	
 		{	// SPY IN B WAS NOT FOUND
 			gangA->add_scores(0);
 			gangB->add_scores(5);
+			spyResults[4] = spyResults[4] + 1;
 		}
 		else 
 		{	// SPY IN B WAS FOUND
 			gangA->add_scores(6);
 			gangB->add_scores(6);
+			spyResults[7] = spyResults[7] + 1;
 		}
 		break;
 	case 2: // SPY IN A WAS FOUND, NO SWITCH
@@ -216,11 +230,13 @@ bool GangGame::spyGame(bool spy_A, bool spy_B, method mthd)
 		{	// SPY IN B WAS NOT FOUND
 			gangA->add_scores(2);
 			gangB->add_scores(5);
+			spyResults[3] = spyResults[3] + 1;
 		}
 		else 
 		{	// SPY IN B WAS FOUND
 			gangA->add_scores(6);
 			gangB->add_scores(6);
+			spyResults[7] = spyResults[7] + 1;
 		}
 		break;
 	}
@@ -236,6 +252,11 @@ Gang * GangGame::getGangA()
 Gang * GangGame::getgangB()
 {
 	return gangB;
+}
+
+vector<int> GangGame::get_spyResults()
+{
+	return spyResults;
 }
 
 

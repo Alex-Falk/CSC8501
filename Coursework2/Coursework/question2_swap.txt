@@ -1,0 +1,952 @@
+
+------------------------------------------------------------------------------------------------
+Game 1
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 7 4 9 0 4 
+
+A: w:0 x:0 y:0 z:0 a:68 b:68 c:198 sentence:740
+B: w:0 x:0 y:0 z:0 a:68 b:68 c:198 sentence:610
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 5	Spy only in B: 1	Spies in both: 4
+out of which:		2 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 2
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 3 3 7 0 2 
+
+A: w:0 x:0 y:0 z:0 a:39 b:83 c:198 sentence:733
+B: w:0 x:0 y:0 z:0 a:39 b:83 c:198 sentence:737
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 3	Spies in both: 4
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 3
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 8 7 5 5 7 
+
+A: w:0 x:0 y:0 z:0 a:0 b:173 c:197 sentence:929
+B: w:0 x:0 y:0 z:0 a:0 b:173 c:197 sentence:1269
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 4	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			1 found in both		6 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 4
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 7 5 4 9 9 
+
+A: w:0 x:0 y:0 z:0 a:0 b:73 c:198 sentence:626
+B: w:0 x:0 y:0 z:0 a:0 b:73 c:198 sentence:769
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 3	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			1 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 5
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 4 0 7 0 7 
+
+A: w:0 x:0 y:0 z:0 a:0 b:21 c:198 sentence:466
+B: w:0 x:0 y:0 z:0 a:0 b:21 c:198 sentence:508
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 2	Spies in both: 5
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 6
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 6 7 6 9 2 
+
+A: w:0 x:0 y:0 z:0 a:0 b:6 c:200 sentence:418
+B: w:0 x:0 y:0 z:0 a:0 b:6 c:200 sentence:430
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 6	Spy only in B: 1	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		10 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 7
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 1 3 6 9 3 
+
+A: w:0 x:0 y:0 z:0 a:155 b:155 c:199 sentence:1179
+B: w:0 x:0 y:0 z:0 a:155 b:155 c:199 sentence:869
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 7	Spies in both: 1
+out of which:		0 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			1 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 8
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:4 b:87 c:198 sentence:675
+B: w:0 x:0 y:0 z:0 a:4 b:87 c:198 sentence:827
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 5	Spy only in B: 3	Spies in both: 2
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 9
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:83 b:94 c:197 sentence:848
+B: w:0 x:0 y:0 z:0 a:83 b:94 c:197 sentence:713
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 5	Spy only in B: 3	Spies in both: 1
+out of which:		3 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		6 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 10
+
+
+Strategies: 7 4 9 0 4 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:101 b:131 c:199 sentence:998
+B: w:0 x:0 y:0 z:0 a:101 b:131 c:199 sentence:853
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 5	Spies in both: 2
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 11
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 3 3 7 0 2 
+
+A: w:0 x:0 y:0 z:0 a:22 b:106 c:199 sentence:765
+B: w:0 x:0 y:0 z:0 a:22 b:106 c:199 sentence:886
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 2	Spies in both: 5
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 12
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 8 7 5 5 7 
+
+A: w:0 x:0 y:0 z:0 a:11 b:115 c:198 sentence:770
+B: w:0 x:0 y:0 z:0 a:11 b:115 c:198 sentence:956
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 3	Spies in both: 4
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 13
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 7 5 4 9 9 
+
+A: w:0 x:0 y:0 z:0 a:18 b:139 c:198 sentence:859
+B: w:0 x:0 y:0 z:0 a:18 b:139 c:198 sentence:1059
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 4	Spies in both: 2
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 14
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 4 0 7 0 7 
+
+A: w:0 x:0 y:0 z:0 a:13 b:112 c:197 sentence:772
+B: w:0 x:0 y:0 z:0 a:13 b:112 c:197 sentence:938
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 3	Spies in both: 4
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			1 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 15
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 6 7 6 9 2 
+
+A: w:0 x:0 y:0 z:0 a:70 b:111 c:198 sentence:876
+B: w:0 x:0 y:0 z:0 a:70 b:111 c:198 sentence:818
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 6	Spies in both: 3
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 16
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 1 3 6 9 3 
+
+A: w:0 x:0 y:0 z:0 a:191 b:191 c:198 sentence:1358
+B: w:0 x:0 y:0 z:0 a:191 b:191 c:198 sentence:976
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 3	Spies in both: 3
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 17
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:109 b:127 c:198 sentence:1002
+B: w:0 x:0 y:0 z:0 a:109 b:127 c:198 sentence:820
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 6	Spies in both: 1
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 18
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:166 b:166 c:198 sentence:1233
+B: w:0 x:0 y:0 z:0 a:166 b:166 c:198 sentence:901
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 1	Spies in both: 6
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 19
+
+
+Strategies: 3 3 7 0 2 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:102 b:119 c:195 sentence:968
+B: w:0 x:0 y:0 z:0 a:102 b:119 c:195 sentence:804
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 5	Spy only in B: 0	Spies in both: 5
+out of which:		3 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			1 found in both		5 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 20
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 8 7 5 5 7 
+
+A: w:0 x:0 y:0 z:0 a:13 b:30 c:197 sentence:522
+B: w:0 x:0 y:0 z:0 a:13 b:30 c:197 sentence:527
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 4	Spies in both: 4
+out of which:		1 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 21
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 7 5 4 9 9 
+
+A: w:0 x:0 y:0 z:0 a:137 b:147 c:200 sentence:1115
+B: w:0 x:0 y:0 z:0 a:137 b:147 c:200 sentence:861
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 3	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		10 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 22
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 4 0 7 0 7 
+
+A: w:0 x:0 y:0 z:0 a:79 b:88 c:198 sentence:825
+B: w:0 x:0 y:0 z:0 a:79 b:88 c:198 sentence:685
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 3	Spies in both: 5
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 23
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 6 7 6 9 2 
+
+A: w:0 x:0 y:0 z:0 a:173 b:179 c:199 sentence:1286
+B: w:0 x:0 y:0 z:0 a:173 b:179 c:199 sentence:949
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 4	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 24
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 1 3 6 9 3 
+
+A: w:0 x:0 y:0 z:0 a:198 b:198 c:198 sentence:1396
+B: w:0 x:0 y:0 z:0 a:198 b:198 c:198 sentence:994
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 7	Spies in both: 0
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 25
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:133 b:146 c:199 sentence:1104
+B: w:0 x:0 y:0 z:0 a:133 b:146 c:199 sentence:867
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 3	Spies in both: 3
+out of which:		1 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 26
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:189 b:189 c:198 sentence:1351
+B: w:0 x:0 y:0 z:0 a:189 b:189 c:198 sentence:967
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 3	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 27
+
+
+Strategies: 8 7 5 5 7 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:195 b:195 c:195 sentence:1384
+B: w:0 x:0 y:0 z:0 a:195 b:195 c:195 sentence:991
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 3	Spies in both: 5
+out of which:		2 found in A wit switching		0 found in A without switching
+			3 found in B with switching		0 found in B without switching
+			0 found in both		5 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 28
+
+
+Strategies: 7 5 4 9 9 
+vs.
+Strategies: 7 5 4 9 9 
+
+A: w:0 x:0 y:0 z:0 a:91 b:111 c:200 sentence:915
+B: w:0 x:0 y:0 z:0 a:91 b:111 c:200 sentence:773
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 7	Spies in both: 1
+out of which:		0 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		10 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 29
+
+
+Strategies: 7 5 4 9 9 
+vs.
+Strategies: 4 0 7 0 7 
+
+A: w:0 x:0 y:0 z:0 a:62 b:115 c:199 sentence:869
+B: w:0 x:0 y:0 z:0 a:62 b:115 c:199 sentence:854
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 4	Spies in both: 3
+out of which:		1 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 30
+
+
+Strategies: 7 5 4 9 9 
+vs.
+Strategies: 6 7 6 9 2 
+
+A: w:0 x:0 y:0 z:0 a:120 b:128 c:199 sentence:1024
+B: w:0 x:0 y:0 z:0 a:120 b:128 c:199 sentence:803
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 2	Spies in both: 4
+out of which:		1 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 31
+
+
+Strategies: 7 5 4 9 9 
+vs.
+Strategies: 1 3 6 9 3 
+
+A: w:0 x:0 y:0 z:0 a:187 b:187 c:197 sentence:1341
+B: w:0 x:0 y:0 z:0 a:187 b:187 c:197 sentence:964
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 4	Spies in both: 2
+out of which:		1 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 32
+
+
+Strategies: 7 5 4 9 9 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:40 b:100 c:197 sentence:783
+B: w:0 x:0 y:0 z:0 a:40 b:100 c:197 sentence:826
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 3	Spies in both: 5
+out of which:		2 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		6 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 33
+
+
+Strategies: 7 5 4 9 9 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:173 b:175 c:195 sentence:1283
+B: w:0 x:0 y:0 z:0 a:173 b:175 c:195 sentence:932
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 1	Spies in both: 5
+out of which:		1 found in A wit switching		0 found in A without switching
+			4 found in B with switching		0 found in B without switching
+			0 found in both		5 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 34
+
+
+Strategies: 7 5 4 9 9 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:140 b:153 c:197 sentence:1145
+B: w:0 x:0 y:0 z:0 a:140 b:153 c:197 sentence:888
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 5	Spies in both: 4
+out of which:		1 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 35
+
+
+Strategies: 4 0 7 0 7 
+vs.
+Strategies: 4 0 7 0 7 
+
+A: w:0 x:0 y:0 z:0 a:67 b:75 c:198 sentence:762
+B: w:0 x:0 y:0 z:0 a:67 b:75 c:198 sentence:644
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 3	Spies in both: 4
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 36
+
+
+Strategies: 4 0 7 0 7 
+vs.
+Strategies: 6 7 6 9 2 
+
+A: w:0 x:0 y:0 z:0 a:99 b:130 c:197 sentence:994
+B: w:0 x:0 y:0 z:0 a:99 b:130 c:197 sentence:855
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 7	Spies in both: 2
+out of which:		1 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 37
+
+
+Strategies: 4 0 7 0 7 
+vs.
+Strategies: 1 3 6 9 3 
+
+A: w:0 x:0 y:0 z:0 a:198 b:198 c:198 sentence:1390
+B: w:0 x:0 y:0 z:0 a:198 b:198 c:198 sentence:1000
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 4	Spies in both: 3
+out of which:		2 found in A wit switching		0 found in A without switching
+			0 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 38
+
+
+Strategies: 4 0 7 0 7 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:52 b:86 c:199 sentence:765
+B: w:0 x:0 y:0 z:0 a:52 b:86 c:199 sentence:726
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 2	Spies in both: 5
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 39
+
+
+Strategies: 4 0 7 0 7 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:145 b:145 c:198 sentence:1128
+B: w:0 x:0 y:0 z:0 a:145 b:145 c:198 sentence:838
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 5	Spies in both: 4
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 40
+
+
+Strategies: 4 0 7 0 7 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:194 b:194 c:199 sentence:1373
+B: w:0 x:0 y:0 z:0 a:194 b:194 c:199 sentence:982
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 7	Spy only in B: 1	Spies in both: 2
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		9 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 41
+
+
+Strategies: 6 7 6 9 2 
+vs.
+Strategies: 6 7 6 9 2 
+
+A: w:0 x:0 y:0 z:0 a:40 b:110 c:197 sentence:816
+B: w:0 x:0 y:0 z:0 a:40 b:110 c:197 sentence:873
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 2	Spies in both: 5
+out of which:		1 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 42
+
+
+Strategies: 6 7 6 9 2 
+vs.
+Strategies: 1 3 6 9 3 
+
+A: w:0 x:0 y:0 z:0 a:163 b:163 c:198 sentence:1221
+B: w:0 x:0 y:0 z:0 a:163 b:163 c:198 sentence:889
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 2	Spies in both: 4
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 43
+
+
+Strategies: 6 7 6 9 2 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:51 b:97 c:198 sentence:799
+B: w:0 x:0 y:0 z:0 a:51 b:97 c:198 sentence:783
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 5	Spy only in B: 3	Spies in both: 2
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 44
+
+
+Strategies: 6 7 6 9 2 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:135 b:135 c:196 sentence:1081
+B: w:0 x:0 y:0 z:0 a:135 b:135 c:196 sentence:811
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 3	Spies in both: 5
+out of which:		2 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		6 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 45
+
+
+Strategies: 6 7 6 9 2 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:116 b:130 c:197 sentence:1032
+B: w:0 x:0 y:0 z:0 a:116 b:130 c:197 sentence:822
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 5	Spy only in B: 2	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			1 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 46
+
+
+Strategies: 1 3 6 9 3 
+vs.
+Strategies: 1 3 6 9 3 
+
+A: w:0 x:0 y:0 z:0 a:0 b:0 c:198 sentence:403
+B: w:0 x:0 y:0 z:0 a:0 b:0 c:198 sentence:403
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 4	Spies in both: 3
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 47
+
+
+Strategies: 1 3 6 9 3 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:0 b:160 c:198 sentence:883
+B: w:0 x:0 y:0 z:0 a:0 b:160 c:198 sentence:1203
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 4	Spies in both: 4
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 48
+
+
+Strategies: 1 3 6 9 3 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:0 b:50 c:198 sentence:553
+B: w:0 x:0 y:0 z:0 a:0 b:50 c:198 sentence:653
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 4	Spies in both: 5
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 49
+
+
+Strategies: 1 3 6 9 3 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:0 b:99 c:196 sentence:703
+B: w:0 x:0 y:0 z:0 a:0 b:99 c:196 sentence:901
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 4	Spy only in B: 4	Spies in both: 2
+out of which:		2 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		6 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 50
+
+
+Strategies: 8 4 2 1 7 
+vs.
+Strategies: 8 4 2 1 7 
+
+A: w:0 x:0 y:0 z:0 a:33 b:108 c:197 sentence:793
+B: w:0 x:0 y:0 z:0 a:33 b:108 c:197 sentence:880
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 4	Spies in both: 4
+out of which:		2 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		7 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 51
+
+
+Strategies: 8 4 2 1 7 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:133 b:144 c:198 sentence:1104
+B: w:0 x:0 y:0 z:0 a:133 b:144 c:198 sentence:854
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 4	Spies in both: 3
+out of which:		0 found in A wit switching		0 found in A without switching
+			2 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 52
+
+
+Strategies: 8 4 2 1 7 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:148 b:148 c:195 sentence:1151
+B: w:0 x:0 y:0 z:0 a:148 b:148 c:195 sentence:858
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 4	Spies in both: 5
+out of which:		2 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			2 found in both		5 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 53
+
+
+Strategies: 0 1 4 5 0 
+vs.
+Strategies: 0 1 4 5 0 
+
+A: w:0 x:0 y:0 z:0 a:50 b:89 c:199 sentence:770
+B: w:0 x:0 y:0 z:0 a:50 b:89 c:199 sentence:745
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 1	Spy only in B: 4	Spies in both: 4
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 54
+
+
+Strategies: 0 1 4 5 0 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:27 b:97 c:198 sentence:752
+B: w:0 x:0 y:0 z:0 a:27 b:97 c:198 sentence:835
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 3	Spy only in B: 3	Spies in both: 4
+out of which:		0 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			1 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+Game 55
+
+
+Strategies: 0 9 2 4 6 
+vs.
+Strategies: 0 9 2 4 6 
+
+A: w:0 x:0 y:0 z:0 a:39 b:82 c:198 sentence:727
+B: w:0 x:0 y:0 z:0 a:39 b:82 c:198 sentence:735
+
+Spy Outcomes: 
+Iterations with: 	Spy only in A: 2	Spy only in B: 2	Spies in both: 6
+out of which:		1 found in A wit switching		0 found in A without switching
+			1 found in B with switching		0 found in B without switching
+			0 found in both		8 not found at all
+
+------------------------------------------------------------------------------------------------
+
+Combination of strategies: 7 4 9 0 4	7482
+Combination of strategies: 3 3 7 0 2	9461
+Combination of strategies: 8 7 5 5 7	11213
+Combination of strategies: 7 5 4 9 9	9907
+Combination of strategies: 4 0 7 0 7	9279
+Combination of strategies: 6 7 6 9 2	8861
+Combination of strategies: 1 3 6 9 3	8234
+Combination of strategies: 8 4 2 1 7	9187
+Combination of strategies: 0 1 4 5 0	8166
+Combination of strategies: 0 9 2 4 6	8669
+
+------------------------------------------------------------------------------------------------
+
+The Winning combination is: 7 4 9 0 4 with a total sentence of 7482 years per gang member

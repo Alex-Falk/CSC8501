@@ -32,6 +32,7 @@ public:
 	int get_y_size() const { return y_size; }
 	T get_element(int x, int y) const;
 	void set_element(int x, int y, T elem);
+	void add_to_element(int x, int y, T elem);
 	// constant elements
 	static const int default_x = 3;
 	static const int default_y = 3;
@@ -191,4 +192,10 @@ T Matrix<T>::get_element(int x, int y) const {
 template <typename T>
 void Matrix<T>::set_element(int x, int y, T elem) {
 	cells[x][y] = elem;
+}
+
+template<typename T>
+inline void Matrix<T>::add_to_element(int x, int y, T elem)
+{
+	cells[x][y] = cells[x][y] + elem;
 }

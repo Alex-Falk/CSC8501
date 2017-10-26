@@ -23,6 +23,26 @@ int main() {
 
 	Settings * settings = new Settings();
 
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	CHOOSING OUTFILENAME
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
+	string outfilename;
+	cout << "Enter an output file name (enter 'default' for the default outfile.txt)\n";
+	cin >> outfilename;
+
+	if (outfilename == "default")
+	{
+		outfilename = "outfile.txt";
+	}
+
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	CHOOSING SETTINGS
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
+
 	cout << "Choose a way to proceed\n";
 	cout << "A: Use the settings.txt file\nB: Manually select settings\nC: Use default settings\n";
 	cin >> settingChoice;
@@ -60,6 +80,7 @@ int main() {
 		(*settings).DISPLAY = detailchoice;
 	}
 
+
 	/*
 	-------------------------------------------------------------------------------------------------------------------------
 	GENERATING STRATEGIES
@@ -86,12 +107,12 @@ int main() {
 		if ((*settings).COURSEWORK == 1) 
 		{ 
 			StrategyGenerator gen; 
-			generateStrategies(gen, (*settings).NRTOGENERATE);
+			generateStrategies(gen, (*settings).NRTOGENERATE,settings);
 		}
 		else if ((*settings).COURSEWORK == 2) 
 		{ 
 			GangStrategyGenerator gen; 
-			generateStrategies(gen, (*settings).NRTOGENERATE);
+			generateStrategies(gen, (*settings).NRTOGENERATE,settings);
 		}
 		
 	}
@@ -120,8 +141,12 @@ int main() {
 			cout << "Specify the filename:\t";
 			cin >> filename;
 
-			ifstream file("Strategies\\" + filename);
-			if (file.good()) { filenames.push_back("Strategies\\" + filename); }
+			string folder;
+			if ((*settings).COURSEWORK == 1) { folder = "Strategies\\"; }
+			else { folder = "Strategies2\\"; }
+
+			ifstream file(folder + filename);
+			if (file.good()) { filenames.push_back(folder + filename); }
 			else { cout << filename << " does not exist\n"; }
 
 			file.close();
@@ -145,13 +170,17 @@ int main() {
 
 	if ((*settings).NRGENERATED > 0) 
 	{
+		string folder;
+		if ((*settings).COURSEWORK == 1) { folder = "Strategies\\"; }
+		else { folder = "Strategies2\\"; }
+
 		for (int j = 0; j < (*settings).NRGENERATED; ++j) 
 		{
-			ifstream file("Strategies\\Strategy" + to_string(j) + ".txt");
+			ifstream file(folder + "Strategy" + to_string(j) + ".txt");
 			if (file.good()) 
 			{
 				cout << "Adding Strategy" << to_string(j) << ".txt \n";
-				filenames.push_back("Strategies\\Strategy" + to_string(j) + ".txt");
+				filenames.push_back(folder + "Strategy" + to_string(j) + ".txt");
 			}
 			else { cout << "Strategy" + to_string(j) + ".txt" << " does not exist\n"; }
 			file.close();
@@ -159,6 +188,39 @@ int main() {
 	}
 
 	cout << "\n" << filenames.size() << " strategies will be used in the tournament \n \n";
+
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	CHOOSING NUMBER OF SPYGAMES
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
+
+	if (settingChoice == 'B' && (*settings).COURSEWORK == 2)
+	{
+		int spychance;
+		cout << "What percentage of games should have spies (enter just the number)\t";
+		cin >> spychance;
+		cout << "\n";
+		
+		(*settings).SPYCHANCE = spychance;
+	}
+
+	/*
+	-------------------------------------------------------------------------------------------------------------------------
+	CHOOSING NUMBER OF ITERATIONS
+	-------------------------------------------------------------------------------------------------------------------------
+	*/
+
+	if (settingChoice == 'B')
+	{
+		int iterations;
+		cout << "How many iterations should each game have?\t";
+		cin >> iterations;
+		cout << "\n";
+
+		(*settings).ITERATIONS = iterations;
+	}
+
 
 	/*
 	-------------------------------------------------------------------------------------------------------------------------
@@ -188,10 +250,12 @@ int main() {
 	-------------------------------------------------------------------------------------------------------------------------
 	*/
 
+	system("CLS");
+
 	if ((*settings).COURSEWORK == 1)
 	{ 
 		Tournament t(filenames,(*settings).DISPLAY); 
-		runTournament(t);
+		runTournament(t, outfilename, settings);
 	}
 	else if ((*settings).COURSEWORK == 2) 
 	{
@@ -212,6 +276,7 @@ int main() {
 				cout << "\n";
 				(*settings).NRCOMBOS = ncombo;
 				(*settings).GENERATECOMBOS = comboChoice;
+				break;
 			}
 		}
 
@@ -220,10 +285,11 @@ int main() {
 		case 'Y':
 		case 'y':
 			t.generateCombinations((*settings).NRCOMBOS);
+			break;
 		}
 		t.readCombinationFile();
 
-		runTournament(t);
+		runTournament(t, outfilename, settings);
 	}
 		
 	return 0;
