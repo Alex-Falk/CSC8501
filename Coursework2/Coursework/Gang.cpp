@@ -13,20 +13,24 @@ Gang::Gang(string fileA, string fileB, string fileC, string fileD, string fileE)
 		gang_members[i] = new GangMember();
 	}
 
+	// This sets up the strats to be the list of strategies excluding the "Strategies\" from the name
 	strats = { fileA.substr(11), fileB.substr(11), fileC.substr(11), fileD.substr(11), fileE.substr(11) };
 
+	// Set up 5 strategy pointers
 	GangStrategy * stratA = new GangStrategy(); 
 	GangStrategy * stratB = new GangStrategy();
 	GangStrategy * stratC = new GangStrategy();
 	GangStrategy * stratD = new GangStrategy();
 	GangStrategy * stratE = new GangStrategy();
 
+	// Read in the strategy and interpret it, then save it the the pointed to strategies
 	get_strat(&stratA, fileA);
 	get_strat(&stratB, fileB);
 	get_strat(&stratC, fileC);
 	get_strat(&stratD, fileD);
 	get_strat(&stratE, fileE);
 
+	// If all the strategies exist set the up the Gang Members wirh each strategy
 	if (stratA && stratB && stratC && stratD && stratE) {
 		gang_members[0]->set_strategy(stratA);
 		gang_members[1]->set_strategy(stratB);
@@ -43,8 +47,10 @@ Gang::~Gang()
 // TODO: Check about this, might not work
 void Gang::get_strat(GangStrategy ** strat, string file)
 {
+	// Reads in strategy file
 	(*strat)->read(file);
 
+	// Tries to interpret the strategy, if it fails throw a runtime error
 	try {
 		(*strat)->interpret();
 	}
@@ -63,6 +69,7 @@ vector<Decision> Gang::get_gang_decisions(int iteration)
 	vector<Decision> decisions(5);
 	int betrays = 0;
 
+	// loop through all gang members and return the decisions for all apart from the spy
 	for (int i = 0; i < 5; ++i) 
 	{
 		if (i != spy_idx)
@@ -73,6 +80,7 @@ vector<Decision> Gang::get_gang_decisions(int iteration)
 		}
 	}
 
+	// Make the spy choice - go for minority decision
 	if (betrays > 2) {
 		decisions[spy_idx] = Decision::SILENCE;
 	}
@@ -80,7 +88,7 @@ vector<Decision> Gang::get_gang_decisions(int iteration)
 		decisions[spy_idx] = Decision::BETRAY;
 	}
 	else {
-		//TODO figure out what the spy does if there is no minority option
+		//TODO figure out what the spy does if there is no minority option, maybe not have him go last?
 		decisions[spy_idx] = Decision::BETRAY;
 	}
 
@@ -91,6 +99,7 @@ vector<Decision> Gang::get_gang_decisions(int iteration)
 
 void Gang::sentence_gang(GangMember::Outcome outcome)
 {
+	// Loop through each gang member and sentence them according to the given outcome
 	for (int i = 0; i < 5; ++i)
 	{
 		gang_members[i]->sentence(outcome);
@@ -118,6 +127,7 @@ vector<string> Gang::return_strats()
 
 void Gang::giveSpy()
 {
+	// Set the first member of the gang to be the leader and the spy to be selected randomly from the remaining members
 	withSpy = true;
 	spy_idx = rand() % 4 + 1;
 	gang_members[spy_idx]->makeSpy();
@@ -125,7 +135,7 @@ void Gang::giveSpy()
 }
 
 int Gang::findSpy(method mthd)
-{
+{	// 
 	int found_spy = 0;
 	
 	if (withSpy) {

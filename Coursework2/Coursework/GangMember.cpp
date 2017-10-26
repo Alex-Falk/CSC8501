@@ -47,7 +47,7 @@ void GangMember::makeSpy()
 }
 
 void GangMember::sentence(Outcome outcome)
-{
+{	// Adds the sentence in years to this Gang Member, sets the last_outcome and updates alloutcome variables
 	last_outcome = outcome;
 	switch (outcome) {
 	case W:

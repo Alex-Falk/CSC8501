@@ -1,5 +1,7 @@
 #include "GlobalFunctions.h"
 
+// Takes a string that has 5 strategy names separated by a space
+// TODO: Make this work for x amount of strategies
 string shortenStrategyList(string strats)
 {
 	string result = "";
@@ -18,13 +20,4 @@ string shortenStrategyList(string strats)
 	}
 
 	return result;
-}
-
-string shortenStrategyName(string strat)
-{
-	string result;
-	int first_nr_idx = strat.find_first_of("0123456789");
-	result = strat.substr(first_nr_idx, strat.size() - first_nr_idx - 4);
-	return result;
-
 }
